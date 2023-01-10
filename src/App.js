@@ -5,9 +5,10 @@ import { useAuthContext } from "./hooks/useAuthContext";
 // pages & components
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Signup from "./pages/signup/Signup";
+import DoctorSignup from "./pages/signup/DoctorSignup";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
+import PatientSignup from "./pages/signup/PatientSignup";
 
 function App() {
 	const { authIsReady, user } = useAuthContext();
@@ -19,16 +20,22 @@ function App() {
 					<Navbar />
 					<Routes>
 						{/* Home */}
-						{user && <Route path="/" element={<Home />} />}
-						{!user && <Route path="/" element={<Navigate to={"/login"} />} />}
+						{/* {user && <Route path="/" element={<Home />} />} */}
+						<Route path="/" element={<Home />} />
+						
+						{/* {!user && <Route path="/" element={<Navigate to={"/login"} />} />} */}
+						<Route path="/" element={<Navigate to={"/login"} />} />
 
 						{/* Login */}
 						{user && <Route path="/login" element={<Navigate to={"/"} />} />}
 						{!user && <Route path="/login" element={<Login />} />}
 
 						{/* Signup */}
-						{user && <Route path="/signup" element={<Navigate to={"/"} />} />}
-						{!user && <Route path="/signup" element={<Signup />} />}
+						{user && <Route path="/doctor-signup" element={<Navigate to={"/"} />} />}
+						{!user && <Route path="/doctor-signup" element={<DoctorSignup />} />}
+						
+						{user && <Route path="/patient-signup" element={<Navigate to={"/"} />} />}
+						{!user && <Route path="/Patient-signup" element={<PatientSignup />} />}
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error user = {user}/>} />

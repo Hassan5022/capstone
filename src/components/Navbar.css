@@ -2,13 +2,14 @@
 .navbar {
     width: 100%;
     background: #61c569;
-    padding: 20px 10px;
+    padding: 4px 10px;
   }
   .navbar ul {
     display: flex;
     margin: 0 auto;
     max-width: 960px;
     align-items: center;
+    height: 50px;
   }
   .title {
     margin-right: auto;
@@ -22,4 +23,10 @@
   .navbar a {
     color: #333;
     text-decoration: none;
+  }
+
+  .navbar .profile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
   }

@@ -11,7 +11,7 @@ export const useSignup = () => {
     const [isPending, setIsPending] = useState(false)
     const { dispatch } = useAuthContext()
 
-    const signup = async (email, password, displayName) => {
+    const signup = async (email, password, displayName, url) => {
         setError(null)
         setIsPending(true)
 
@@ -24,7 +24,7 @@ export const useSignup = () => {
             }
 
             // add display name to user
-            await res.user.updateProfile({ displayName })
+            await res.user.updateProfile({displayName, photoURL:url})
 
             // dispatch login user
             dispatch({type: 'LOGIN', payload: res.user})
