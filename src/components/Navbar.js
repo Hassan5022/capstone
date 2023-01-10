@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
 	const { user } = useAuthContext();
 	const { logout } = useLogout();
-
+	
 	return (
 		<nav className="navbar">
 			<ul>
@@ -18,15 +18,14 @@ export default function Navbar() {
 				</li>
 				{!user && (
 					<>
-						<li>
-							<Link to="/login">Login</Link>
-						</li>
-						<li>
-							<Link to="/doctor-signup">Doctor</Link>
-						</li>
-						<li>
-							<Link to="/patient-signup">Patient</Link>
-						</li>
+						<div className="dropdown">
+							<button className="dropbtn">Login/SignUp</button>
+							<div className="dropdown-content">
+								<Link className="d" to="/doctor-signup">Doctor</Link>
+
+								<Link className="d" to="/patient-signup">Patient</Link>
+							</div>
+						</div>
 					</>
 				)}
 				{user && (

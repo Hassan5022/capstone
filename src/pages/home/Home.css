@@ -1,3 +1,38 @@
 .doctors .profile-image{
     width: 100px;
 }
+.home{
+    background: url(https://s3-eu-west-1.amazonaws.com/mdpk/frontend/assets/images/header-bg.jpg) no-repeat;
+    /* background-size: 100% auto; */
+    min-height: 65vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  text-align: center;
+
+  
+}
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+input[type=text] {
+    padding: 10px;
+    width: 380px;
+  }
+.a{
+    padding: 10px; 
+    width: 100px;
+    color:#ff9e15;
+  font-weight:bolder;
+ 
+}
+
+@media screen and (max-width:970px) {
+    .a {
+    display: none;
+    }
+  }
+  
