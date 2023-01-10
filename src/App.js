@@ -19,11 +19,12 @@ function App() {
 					<Navbar />
 					<Routes>
 						{/* Home */}
-						{user && <Route path="/" element={<Home />} />}
-						{!user && <Route path="/" element={<Navigate to={"/login"} />} />}
+						{<Route path="/" element={<Home />} />}
+						{/* {!user && <Route path="/" element={<Navigate to={"/Home"} />} />} */}
+						
 
 						{/* Login */}
-						{user && <Route path="/login" element={<Navigate to={"/"} />} />}
+						{user && <Route path="/login" element={<Navigate to={"/"} />} />} 
 						{!user && <Route path="/login" element={<Login />} />}
 
 						{/* Signup */}
