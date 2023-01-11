@@ -17,7 +17,8 @@ export default function PatientSignup() {
 
 	useEffect(() => {
 		if (url) {
-			signup(email, password, displayName, url);
+		 signup(email, password, displayName, url);
+			
 			addDocument({
 				name: displayName,
 				email,

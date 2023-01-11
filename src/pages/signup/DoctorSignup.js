@@ -3,8 +3,8 @@ import "./Signup.css";
 // hooks
 import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
+import { storageRef } from "../../firebase/config";
 import { useFirestore } from "../../hooks/useFirestore";
-import { storageRef} from "../../firebase/config";
 
 export default function DoctorSignup() {
 	const [email, setEmail] = useState("");
@@ -13,9 +13,11 @@ export default function DoctorSignup() {
 	const [category, setCategory] = useState("dentist");
 	const [photo, setPhoto] = useState("");
 	const [password, setPassword] = useState("");
+	const [photoPending, setPhotoPending] = useState(false);
 	const [url, setUrl] = useState("");
-	const { error, isPending, signup } = useSignup();
-	const { addDocument } = useFirestore("doctors");
+	const { error, isPending, signup, setDocuments } = useSignup();
+	const {addDocument} = useFirestore("doctors")
+	// const {user} = useAuthContext()
 
 	useEffect(() => {
 		if (url) {
@@ -34,7 +36,7 @@ export default function DoctorSignup() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		var uploadTask = storageRef.child(`images/${photo.name}`).put(photo)
+		var uploadTask = storageRef.child(`images/${photo.name}`).put(photo);
 		console.log(uploadTask);
 
 		// Register three observers:
@@ -48,16 +50,17 @@ export default function DoctorSignup() {
 				// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
 				var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 				console.log("Upload is " + progress + "% done");
+				setPhotoPending(progress);
 			},
 			(error) => {
-				console.log(error.message)
+				console.log(error.message);
 			},
 			() => {
 				// Handle successful uploads on complete
 				// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 				uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
 					console.log("File available at", downloadURL);
-					setUrl(downloadURL)
+					setUrl(downloadURL);
 				});
 			}
 		);
@@ -116,6 +119,7 @@ export default function DoctorSignup() {
 					Loading
 				</button>
 			)}
+			{photoPending && <p>{parseInt(photoPending) + "%"}</p>}
 			{error && <p>{error}</p>}
 		</form>
 	);

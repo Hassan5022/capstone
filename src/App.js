@@ -9,9 +9,10 @@ import DoctorSignup from "./pages/signup/DoctorSignup";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
 import PatientSignup from "./pages/signup/PatientSignup";
+import Card from "./pages/Card/Card";
 
 function App() {
-	const { authIsReady, user } = useAuthContext();
+	const { authIsReady, user, doctors} = useAuthContext();
 
 	return (
 		<div className="App">
@@ -35,6 +36,8 @@ function App() {
 						
 						{user && <Route path="/patient-signup" element={<Navigate to={"/"} />} />}
 						{!user && <Route path="/Patient-signup" element={<PatientSignup />} />}
+
+						<Route path="/doctors" element={<Card doctors={doctors}/>} />
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error user = {user}/>} />

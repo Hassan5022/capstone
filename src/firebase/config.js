@@ -8,7 +8,6 @@ const firebaseConfig = {
     authDomain: "sudofy-capstone.firebaseapp.com",
     projectId: "sudofy-capstone",
     storageBucket: "sudofy-capstone.appspot.com",
-    // storageBucket: "gs://sudofy-capstone.appspot.com",
     messagingSenderId: "597636209914",
     appId: "1:597636209914:web:44503282ac0485eb45bd43"
   };
