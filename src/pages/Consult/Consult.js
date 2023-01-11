@@ -22,8 +22,8 @@ const Consult = () => {
 							to="/doctors"
 							style={{ textDecoration: "none"}}
 						>
-						</Link>
 							Start Consulting
+						</Link>
 					</button>
 				</div>
 			</div>
