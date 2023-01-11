@@ -5,13 +5,11 @@ import { useAuthContext } from "./hooks/useAuthContext";
 // pages & components
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-// import DoctorSignup from "./pages/signup/DoctorSignup";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
-// import PatientSignup from "./pages/signup/PatientSignup";
 import Card from "./pages/Card/Card";
-import PatSignUP from './pages/PatSignUP/PatSignUp'
-import Signup from "./pages/signup/Signup";
+import Signup from "./pages/signup/DoctorSignup";
+import PatSignUp from "./pages/signup/PatSignUp";
 
 function App() {
 	const { authIsReady, user, doctors} = useAuthContext();
@@ -26,9 +24,7 @@ function App() {
 						
 						{<Route path="/" element={<Home />} />}
 						{/* {!user && <Route path="/" element={<Navigate to={"/Home"} />} />} */}
-						{<Route path="/PatSignUP" element={<PatSignUP/>} />}
-						
-
+					
 						{/* Login */}
 						{user && <Route path="/login" element={<Navigate to={"/"} />} />} 
 						{!user && <Route path="/login" element={<Login />} />}
@@ -38,7 +34,7 @@ function App() {
 						{!user && <Route path="/doctor-signup" element={<Signup/>} />}
 						
 						{user && <Route path="/patient-signup" element={<Navigate to={"/"} />} />}
-						{!user && <Route path="/Patient-signup" element={<PatSignUP/>} />}
+						{!user && <Route path="/patient-signup" element={<PatSignUp/>} />}
 
 						<Route path="/doctors" element={<Card doctors={doctors}/>} />
 

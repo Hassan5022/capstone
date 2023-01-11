@@ -1,32 +1,30 @@
 // styles
-import "./Signup.css";
+import "./PatSignUp.css";
 // hooks
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useSignup } from "../../hooks/useSignup";
-import { storageRef } from "../../firebase/config";
 import { useFirestore } from "../../hooks/useFirestore";
+import { storageRef } from "../../firebase/config";
+import { Link } from "react-router-dom";
 
-export default function Signup() {
-	const [email, setEmail] = useState("");
+export default function PatSignUp() {
+  const [email, setEmail] = useState("");
 	const [displayName, setdisplayName] = useState("");
-	const [city, setCity] = useState("");
-	const [category, setCategory] = useState("dentist");
 	const [photo, setPhoto] = useState("");
 	const [password, setPassword] = useState("");
-	const [photoPending, setPhotoPending] = useState(false);
-	const [url, setUrl] = useState("");
 	const { error, isPending, signup } = useSignup();
-	const { addDocument } = useFirestore("doctors");
-
-	useEffect(() => {
+	const [url, setUrl] = useState("");
+	const { addDocument } = useFirestore("patients");
+	const [photoPending, setPhotoPending] = useState(false);
+  
+  useEffect(() => {
 		if (url) {
-			signup(email, password, displayName, url);
+		 signup(email, password, displayName, url);
+			
 			addDocument({
 				name: displayName,
 				email,
-				city,
-				category,
-				role: "doctor",
+				role: "patient",
 				url,
 			});
 		}
@@ -35,7 +33,7 @@ export default function Signup() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		var uploadTask = storageRef.child(`images/${photo.name}`).put(photo);
+		var uploadTask = storageRef.child(`images/${photo.name}`).put(photo)
 		console.log(uploadTask);
 
 		// Register three observers:
@@ -52,14 +50,14 @@ export default function Signup() {
 				setPhotoPending(progress);
 			},
 			(error) => {
-				console.log(error.message);
+				console.log(error.message)
 			},
 			() => {
 				// Handle successful uploads on complete
 				// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 				uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
 					console.log("File available at", downloadURL);
-					setUrl(downloadURL);
+					setUrl(downloadURL)
 				});
 			}
 		);
@@ -75,69 +73,30 @@ export default function Signup() {
 						<label>Email</label>
 					</div>
 					<div>
-						<input
-							type="email"
-							id="email"
-							required
-							placeholder="Email"
-							onChange={(e) => setEmail(e.target.value)}
-							value={email}
-						/>
+						<input type="email" onChange={(e) => setEmail(e.target.value)}
+				value={email} placeholder="Email" id="email" />
 					</div>
 
 					<div className="col-25">
 						<label>Password</label>
 					</div>
 					<div>
-						<input
-							type="password"
-							placeholder="Password"
-							id="password"
-							required
-							onChange={(e) => setPassword(e.target.value)}
-							value={password}
-						/>
+						<input onChange={(e) => setPassword(e.target.value)}
+				value={password} type="password" placeholder="Password" id="password" />
 					</div>
 
 					<div className="col-25">
 						<label>DisplayName</label>
 					</div>
 					<div>
-						<input
+            <input
+              onChange={(e) => setdisplayName(e.target.value)}
+              value={displayName}
 							type="text"
 							id="fname"
-							required
+							name="firstname"
 							placeholder=" name.."
-							onChange={(e) => setdisplayName(e.target.value)}
-							value={displayName}
 						/>
-					</div>
-
-					<div className="col-25">
-						<label>City</label>
-					</div>
-					<div>
-						<input onChange={(e) => setCity(e.target.value)}
-				value={city} type="text" id="city" name="firstname" placeholder="City" />
-					</div>
-
-					<div className="col-25">
-						<label>Category</label>
-					</div>
-					<div>
-						<select onChange={(e) => setCategory(e.target.value)}
-				value={category} id="category">
-							<option value="australia">Dentist</option>
-							<option value="canada">HomeoPhetic</option>
-							<option value="usa">Dermatology</option>
-							<option value="usa">Anesthesiology</option>
-							<option value="usa">Ophthalmology</option>
-							<option value="usa">Pediatrics</option>
-							<option value="usa">Psychiatry</option>
-							<option value="usa">Clinical Pathology</option>
-							<option value="usa">Nephrology</option>
-							<option value="usa">Clinical Immunology</option>
-						</select>
 					</div>
 
 					<div className="col-25">
@@ -146,7 +105,7 @@ export default function Signup() {
 					<div>
 						<input
 							type="file"
-							id="fname"
+							id="file"
 							name="firstname"
               placeholder="Picture"
               onChange={(e) => setPhoto(e.target.files[0])}
@@ -163,9 +122,9 @@ export default function Signup() {
 							<button type="submit" className="bt" disabled>
 								Loading
 							</button>
-            )}
-            {photoPending && <p>{parseInt(photoPending) + "%"}</p>}
+						)}
 						{error && <p>{error}</p>}
+						{photoPending && <p>{parseInt(photoPending) + "%"}</p>}
 					</div>
 					<div>
 						<span style={{ color: "#006" }}>
@@ -174,6 +133,7 @@ export default function Signup() {
 								to="/login"
 								style={{ textDecoration: "none", color: "orange" }}
 							>
+								{" "}
 								Login
 							</Link>
 						</span>

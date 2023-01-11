@@ -20,10 +20,10 @@ const Consult = () => {
 					<button className="but">
 						<Link
 							to="/doctors"
-							style={{ textDecoration: "none", color: "white" }}
+							style={{ textDecoration: "none"}}
 						>
-							Start Consulting
 						</Link>
+							Start Consulting
 					</button>
 				</div>
 			</div>

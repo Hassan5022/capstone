@@ -1,12 +1,13 @@
 // styles
-import "./Signup.css";
+import "./DoctorSignup.css";
 // hooks
 import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import { storageRef } from "../../firebase/config";
 import { useFirestore } from "../../hooks/useFirestore";
+import { Link } from "react-router-dom";
 
-export default function DoctorSignup() {
+export default function Signup() {
 	const [email, setEmail] = useState("");
 	const [displayName, setdisplayName] = useState("");
 	const [city, setCity] = useState("");
@@ -15,9 +16,8 @@ export default function DoctorSignup() {
 	const [password, setPassword] = useState("");
 	const [photoPending, setPhotoPending] = useState(false);
 	const [url, setUrl] = useState("");
-	const { error, isPending, signup} = useSignup();
-	const {addDocument} = useFirestore("doctors")
-	// const {user} = useAuthContext()
+	const { error, isPending, signup } = useSignup();
+	const { addDocument } = useFirestore("doctors");
 
 	useEffect(() => {
 		if (url) {
@@ -67,60 +67,119 @@ export default function DoctorSignup() {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="signup-form">
-			<h2>Signup</h2>
-			<label id="email">email:</label>
-			<input
-				id="email"
-				type="email"
-				onChange={(e) => setEmail(e.target.value)}
-				value={email}
-			/>
-			<label id="password">password:</label>
-			<input
-				id="password"
-				type="password"
-				onChange={(e) => setPassword(e.target.value)}
-				value={password}
-			/>
-			<label id="displayName">display name:</label>
-			<input
-				id="displayName"
-				type="text"
-				onChange={(e) => setdisplayName(e.target.value)}
-				value={displayName}
-			/>
-			<label id="city">City:</label>
-			<input
-				id="city"
-				type="text"
-				onChange={(e) => setCity(e.target.value)}
-				value={city}
-			/>
-			<label id="category">Category:</label>
-			<select
-				id="category"
-				onChange={(e) => setCategory(e.target.value)}
-				value={category}
-			>
-				<option value="dentist">Dentist</option>
-				<option value="nutritionist">Nutritionist</option>
-			</select>
-			<label id="photo">Photo:</label>
-			<input
-				id="photo"
-				type="file"
-				onChange={(e) => setPhoto(e.target.files[0])}
-				// value={photo}
-			/>
-			{!isPending && <button className="btn">Signup</button>}
-			{isPending && (
-				<button className="btn" disabled>
-					Loading
-				</button>
-			)}
-			{photoPending && <p>{parseInt(photoPending) + "%"}</p>}
-			{error && <p>{error}</p>}
-		</form>
+		<div className="bg">
+			<div className="containe">
+				<form onSubmit={handleSubmit} className="signup-form">
+					<h3 className="h1">SignUP Form</h3>
+
+					<div className="col-25">
+						<label>Email</label>
+					</div>
+					<div>
+						<input
+							type="email"
+							id="email"
+							required
+							placeholder="Email"
+							onChange={(e) => setEmail(e.target.value)}
+							value={email}
+						/>
+					</div>
+
+					<div className="col-25">
+						<label>Password</label>
+					</div>
+					<div>
+						<input
+							type="password"
+							placeholder="Password"
+							id="password"
+							required
+							onChange={(e) => setPassword(e.target.value)}
+							value={password}
+						/>
+					</div>
+
+					<div className="col-25">
+						<label>DisplayName</label>
+					</div>
+					<div>
+						<input
+							type="text"
+							id="fname"
+							required
+							placeholder=" name.."
+							onChange={(e) => setdisplayName(e.target.value)}
+							value={displayName}
+						/>
+					</div>
+
+					<div className="col-25">
+						<label>City</label>
+					</div>
+					<div>
+						<input onChange={(e) => setCity(e.target.value)}
+				value={city} type="text" id="city" name="firstname" placeholder="City" />
+					</div>
+
+					<div className="col-25">
+						<label>Category</label>
+					</div>
+					<div>
+						<select onChange={(e) => setCategory(e.target.value)}
+				value={category} id="category">
+							<option value="dentist">Dentist</option>
+							<option value="homeophethic">HomeoPhethic</option>
+							<option value="dermatology">Dermatology</option>
+							<option value="anesthesiology">Anesthesiology</option>
+							<option value="ophthalmology">Ophthalmology</option>
+							<option value="pediatrics">Pediatrics</option>
+							<option value="psychiatry">Psychiatry</option>
+							<option value="clinical pathology">Clinical Pathology</option>
+							<option value="nephrology">Nephrology</option>
+							<option value="clinical immunology">Clinical Immunology</option>
+						</select>
+					</div>
+
+					<div className="col-25">
+						<label>Photo</label>
+					</div>
+					<div>
+						<input
+							type="file"
+							name="firstname"
+              placeholder="Picture"
+              onChange={(e) => setPhoto(e.target.files[0])}
+						/>
+					</div>
+
+					<div className="col">
+						{!isPending && (
+							<button type="submit" className="bt">
+								Submit
+							</button>
+						)}
+						{isPending && (
+							<button type="submit" className="bt" disabled>
+								Loading
+							</button>
+            )}
+            {photoPending && <p>{parseInt(photoPending) + "%"}</p>}
+						{error && <p>{error}</p>}
+					</div>
+					<div>
+						<span style={{ color: "#006" }}>
+							Already registered?
+							<Link
+								to="/login"
+								style={{ textDecoration: "none", color: "orange" }}
+							>
+								Login
+							</Link>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
 	);
 }

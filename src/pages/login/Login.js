@@ -49,7 +49,7 @@ export default function Login() {
 	  <div className="col">
       {!isPending && <button type="submit" className="bt" >Submit</button>}
       {isPending && <button  type="submit" className="bt" disabled>Loading</button>}
-      {error && <p>{ error}</p> }
+      {error && <p className="error">{ error}</p> }
       </div>
      
    
