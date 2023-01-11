@@ -1,7 +1,7 @@
 /* navbar styles */
 .navbar {
     width: 100%;
-  
+  /* background-color: #ff9e15; */
     padding: 20px 10px;
   }
   .navbar ul {
@@ -32,6 +32,18 @@
     border: 1px solid #ff9e15;
     border-radius: 10px ;
 
+  }
+  .logout{
+    background-color: white;
+    color: #ff9e15;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ff9e15;
+    border-radius: 10px ; 
+    cursor: pointer;
+  }
+  .logout:hover{
+    background-color: #006;
   }
   
   .dropdown {
@@ -68,6 +80,7 @@
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background:  #006;
+.dropdown:hover .dropbtn {
+  background:  #006;
 color: #ff9e15;
 }

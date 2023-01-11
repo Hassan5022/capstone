@@ -19,8 +19,8 @@ export default function Navbar() {
             <div className="dropdown">
               <button className="dropbtn">Login/SignUp</button>
               <div className="dropdown-content">
-               <Link to="/login" className='d'>Login</Link>
-            <Link to="/signup" className='d'>Signup</Link>
+               <Link to="/PatSignUP" className='d'>Patient</Link>
+            <Link to="/signup" className='d'>Doctor</Link>
               </div>
             </div>
             {/* <li>
@@ -35,7 +35,7 @@ export default function Navbar() {
           <>
             <li>{`Hello, ${user.displayName}`}</li>
             <li>
-              <button className="btn" onClick={logout}>
+              <button className="logout" onClick={logout}>
                 Logout
               </button>
             </li>

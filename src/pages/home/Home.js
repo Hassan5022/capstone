@@ -2,7 +2,8 @@
 import './Home.css'
 import Consult from '../Consult/Consult'
 import Card from '../Card/Card'
-
+import Doctor from '../Doctor/Doctor'
+import Reviews from '../Reviews/Reviews'
 
 const Home = () => {
   return (
@@ -13,10 +14,8 @@ const Home = () => {
       <br></br>
      
     <form>
-      <input type="text" placeholder="Search.." name="search"/>
-      <button type="submit" className='a'>Search</button>
-      
-     
+      <input type="text" placeholder="Search.." name="search" className='inp'/>
+      <button  className='a'>Search</button>
     </form>
   </div>
       </div>
@@ -29,6 +28,12 @@ const Home = () => {
       </section>
       <section>
         <Card/>
+      </section>
+      <section>
+        <Doctor/>
+      </section>
+      <section>
+        <Reviews/>
       </section>
       </>
    

@@ -8,6 +8,7 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signup/Signup";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
+import PatSignUP from './pages/PatSignUP/PatSignUp'
 
 function App() {
 	const { authIsReady, user } = useAuthContext();
@@ -21,6 +22,7 @@ function App() {
 						{/* Home */}
 						{<Route path="/" element={<Home />} />}
 						{/* {!user && <Route path="/" element={<Navigate to={"/Home"} />} />} */}
+						{<Route path="/PatSignUP" element={<PatSignUP/>} />}
 						
 
 						{/* Login */}
