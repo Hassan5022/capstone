@@ -5,13 +5,14 @@ import { useAuthContext } from "./hooks/useAuthContext";
 // pages & components
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Signup from "./pages/signup/Signup";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
-import PatSignUP from './pages/PatSignUP/PatSignUp'
+import Card from "./pages/Card/Card";
+import Signup from "./pages/signup/DoctorSignup";
+import PatSignUp from "./pages/signup/PatSignUp";
 
 function App() {
-	const { authIsReady, user } = useAuthContext();
+	const { authIsReady, user, doctors} = useAuthContext();
 
 	return (
 		<div className="App">
@@ -20,18 +21,22 @@ function App() {
 					<Navbar />
 					<Routes>
 						{/* Home */}
+						
 						{<Route path="/" element={<Home />} />}
 						{/* {!user && <Route path="/" element={<Navigate to={"/Home"} />} />} */}
-						{<Route path="/PatSignUP" element={<PatSignUP/>} />}
-						
-
+					
 						{/* Login */}
 						{user && <Route path="/login" element={<Navigate to={"/"} />} />} 
 						{!user && <Route path="/login" element={<Login />} />}
 
 						{/* Signup */}
-						{user && <Route path="/signup" element={<Navigate to={"/"} />} />}
-						{!user && <Route path="/signup" element={<Signup />} />}
+						{user && <Route path="/doctor-signup" element={<Navigate to={"/"} />} />}
+						{!user && <Route path="/doctor-signup" element={<Signup/>} />}
+						
+						{user && <Route path="/patient-signup" element={<Navigate to={"/"} />} />}
+						{!user && <Route path="/patient-signup" element={<PatSignUp/>} />}
+
+						<Route path="/doctors" element={<Card doctors={doctors}/>} />
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error user = {user}/>} />

@@ -1,24 +1,19 @@
-import React from 'react'
-import './Card.css'
-import DocImage from '../../Images/docImage.jpg'
+import "./Card.css";
 
+const Card = ({ doctors }) => {
 
-const Card = () => {
-  return (
-    <div className='section-three'>
+	return (
+		<div className="section-three">
+			<div className="cards">
+				{doctors && doctors.map((doctor) => (
+					<div key={doctor.id} className="card">
+						<img src={doctor.url} alt="DocImage" className="DocImage"></img>
+						<div>{doctor.name}</div>
+					</div>
+				))}
+			</div>
+		</div>
+	);
+};
 
-<div className="cards">
-<img src={DocImage} alt='DocImage' className='DocImage'></img>
-  <div className='card'>aaaaa</div>
-  <img src={DocImage} alt='DocImage' className='DocImage'></img>
-  <div className='card'>aree</div>
-  {/* <div className='card'>aree</div>  */}
-  
-  
-
-</div>
-    </div>
-  )
-}
-
-export default Card
+export default Card;
