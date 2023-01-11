@@ -15,7 +15,7 @@ export default function DoctorSignup() {
 	const [password, setPassword] = useState("");
 	const [photoPending, setPhotoPending] = useState(false);
 	const [url, setUrl] = useState("");
-	const { error, isPending, signup, setDocuments } = useSignup();
+	const { error, isPending, signup} = useSignup();
 	const {addDocument} = useFirestore("doctors")
 	// const {user} = useAuthContext()
 

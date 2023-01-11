@@ -1,6 +1,7 @@
 .home {
 	background: url(https://s3-eu-west-1.amazonaws.com/mdpk/frontend/assets/images/header-bg.jpg)
 		no-repeat;
+	/* background-size: 100% auto; */
 	min-height: 65vh;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -9,13 +10,14 @@
 }
 .centered {
 	position: absolute;
+	/* width: 320px; */
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-input[type="text"] {
+.inp {
 	padding: 10px;
-	width: 380px;
+	width: 380px !important;
 }
 .a {
 	padding: 10px;
@@ -27,5 +29,21 @@ input[type="text"] {
 @media screen and (max-width: 970px) {
 	.a {
 		display: none;
+	}
+}
+@media screen and (max-width: 600px) {
+	.centered {
+		max-width: 320px;
+	}
+	.inp {
+		max-width: 100px;
+	}
+}
+@media screen and (max-width: 350px) {
+	.centered {
+		max-width: 200px;
+	}
+	.inp {
+		max-width: 50px;
 	}
 }

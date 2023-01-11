@@ -1,27 +1,28 @@
 import React from "react";
 import "./Consult.css";
-import Doctor from "../../Images/online.png";
 import { Link } from "react-router-dom";
-
+import icon from "../../Images/online.png";
 const Consult = () => {
 	return (
 		<div className="main">
 			<div className="containers">
-				<div>
-					<div className="leftDiv">
-						<img src={Doctor} alt="Doctor"></img>
-					</div>
-					<div className="RightDiv">
-						<h3>Doctors Online Now</h3>
-						<div className="circle"></div>
-					</div>
-					<p>instant video consultation with top doctors</p>
-					<button className="button button3">
+				<div className="left">
+					<img src={icon} alt="icon" />
+				</div>
+				<div className="right">
+					<h3 style={{ color: "#006" }} className="d">
+						Doctors online now
+					</h3>
+					<div className="circle"></div>
+					<p style={{ color: "orange" }}>
+						Instant Video Consultation with Top Doctors
+					</p>
+					<button className="but">
 						<Link
 							to="/doctors"
 							style={{ textDecoration: "none", color: "white" }}
 						>
-							Start Consultation
+							Start Consulting
 						</Link>
 					</button>
 				</div>
