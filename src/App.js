@@ -38,7 +38,7 @@ function App() {
 						{!user && <Route path="/patient-signup" element={<PatSignUp/>} />}
 
 						<Route path="/doctors" element={<Card doctors={doctors}/>} />
-						<Route path="/DoctorDetails" element={<DoctorDetails/>} />
+						<Route path="/doctor-details" element={<DoctorDetails/>} />
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error user = {user}/>} />
