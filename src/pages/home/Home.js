@@ -6,6 +6,9 @@ import Consult from "../Consult/Consult";
 import Card from "../Card/Card";
 import Doctor from "../Doctor/Doctor";
 import Reviews from "../Reviews/Reviews";
+import Headline from "../HeadLine/Headline";
+import Footer from "../Footer/Footer";
+import Foot from "../Foot/Foot";
 
 const Home = () => {
 	//   return (
@@ -78,6 +81,15 @@ const Home = () => {
 			</section>
 			<section>
 				<Reviews />
+			</section>
+			<section>
+				<Headline/>
+			</section>
+			<section>
+				<Footer/>
+			</section>
+			<section>
+				<Foot/>
 			</section>
 		</>
 	);

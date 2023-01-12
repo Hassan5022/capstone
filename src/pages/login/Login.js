@@ -18,7 +18,7 @@ export default function Login() {
 		<div className="bg">
 <div className="containe">
 <form className="signup-form" onSubmit={handleSubmit} >
-<h3 className="h1">Login Form</h3>
+<h3 className="h1">Login <span style={{color:'orange'}}>Form</span></h3>
 
       <div className="col-25">
         <label >Email</label>
@@ -49,7 +49,7 @@ export default function Login() {
 	  <div className="col">
       {!isPending && <button type="submit" className="bt" >Submit</button>}
       {isPending && <button  type="submit" className="bt" disabled>Loading</button>}
-      {error && <p className="error">{ error}</p> }
+      {error && <p className="error" style={{color:'red'}}>{ error}</p> }
       </div>
      
    

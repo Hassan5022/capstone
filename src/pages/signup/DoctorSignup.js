@@ -70,7 +70,7 @@ export default function Signup() {
 		<div className="bg">
 			<div className="containe">
 				<form onSubmit={handleSubmit} className="signup-form">
-					<h3 className="h1">SignUP Form</h3>
+					<h3 className="h1">SignUP<span style={{color:'orange'}}> Form</span></h3>
 
 					<div className="col-25">
 						<label>Email</label>
@@ -164,8 +164,8 @@ export default function Signup() {
 								Loading
 							</button>
             )}
-            {photoPending && <p>{parseInt(photoPending) + "%"}</p>}
-						{error && <p>{error}</p>}
+            {photoPending && <p style={{color:'red' ,textAlign:'center',paddingTop:'10px',fontWeight:'bolder'}}>{parseInt(photoPending) + "%"}</p>}
+						{error && <p style={{color:'red'}}>{error}</p>}
 					</div>
 					<div>
 						<span style={{ color: "#006" }}>

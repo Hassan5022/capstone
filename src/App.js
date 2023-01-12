@@ -10,6 +10,7 @@ import { Error } from "./components/Error";
 import Card from "./pages/Card/Card";
 import Signup from "./pages/signup/DoctorSignup";
 import PatSignUp from "./pages/signup/PatSignUp";
+import DoctorDetails from "./pages/DoctorDetails/DoctorDetails";
 
 function App() {
 	const { authIsReady, user, doctors} = useAuthContext();
@@ -37,6 +38,7 @@ function App() {
 						{!user && <Route path="/patient-signup" element={<PatSignUp/>} />}
 
 						<Route path="/doctors" element={<Card doctors={doctors}/>} />
+						<Route path="/doctor-details" element={<DoctorDetails/>} />
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error user = {user}/>} />

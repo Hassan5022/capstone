@@ -24,18 +24,13 @@
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
+  box-shadow: 3px 3px 5px 6px #ccc;
 }
 
 @media (min-width: 600px) {
 	.Reviews {
 		grid-template-columns: repeat(2, 1fr);
 		padding: 30px;
-	}
-}
-@media (max-width: 599px) {
-	.Reviews {
-		grid-template-columns: repeat(1, 1fr);
-		padding: 50px;
 	}
 }
 
@@ -62,3 +57,32 @@
     margin: 8px 0 16px;
 	color: orange;
 }
+  
+  @media (max-width: 599px) {
+    .Reviews {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 50px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .Doc {
+      left: 180px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .Doc {
+      left: 130px;
+    }
+  }
+  @media (max-width: 550px) {
+    .Doc {
+      left: 230px;
+    }
+  }
+  @media (max-width: 400px) {
+    .Doc {
+      left: 120px;
+    }
+  }
