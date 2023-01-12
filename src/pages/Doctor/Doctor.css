@@ -48,4 +48,22 @@
     margin-left: 100px;
    
   }
-  
+  .dBut{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+  }
+  .butt{
+    background-color: #006;
+    width: 200px;
+    color:white;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #006;
+    /* border-radius: 10px ; */
+    cursor: pointer;
+  }
+  .butt:hover{
+    background-color: white;
+    color:#006;
+  }

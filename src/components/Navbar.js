@@ -30,7 +30,7 @@ export default function Navbar() {
 				)}
 				{user && (
 					<>
-						<li>{`Hello, ${user.displayName}`}</li>
+						<li style={{color:'#006'}}> Hello,<span style={{color:'orange'}}>{`${user.displayName}`}</span> </li>
 						<li>
 							<img className="profile" src={user.photoURL} alt="profile" />
 						</li>
