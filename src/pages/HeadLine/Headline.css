@@ -1,0 +1,17 @@
+.Headline{
+    min-height: 40vh;
+    background-color: white;
+}
+.head{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+marquee {
+    width: 100%;
+    padding: 10px 0 
+    /* background-color: lightblue; */
+  }
+  .marq{
+   padding: 40px;
+  }
