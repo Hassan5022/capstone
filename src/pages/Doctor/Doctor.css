@@ -1,0 +1,51 @@
+.section-four{
+    min-height: 60vh;
+    background-color: #f5f5f5;
+}
+.flex-contain {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .item-left {
+    padding: 20px;
+    flex: 50%;
+    min-height: 60vh
+
+  }
+  
+  .item-right {
+   /* padding: 10px; */
+    flex: 50%;
+    min-height: 60vh;
+    background-image: url(../../Images/phones.png);
+    background-position: bottom;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+
+  }
+  
+  @media (max-width: 600px) {
+    .flex-contain {
+      flex-direction: column;
+      flex-direction: column-reverse;
+      padding: 0%;
+    }
+
+    .item-right{
+      min-height: 24vh;
+      background-position: top;
+     margin-top: 12px;
+    }
+  }
+
+  .ul{
+    margin-top: 50px;
+    margin-left: 100px;
+   
+  }
+  

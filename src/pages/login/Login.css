@@ -1,4 +1,4 @@
-.login-form {
+/* .login-form {
   max-width: 360px;
   margin: 60px auto;
   padding: 20px;
@@ -18,4 +18,106 @@
 
 .login-form input[type='password']{
   margin-bottom: 16px;
-} 
+}  */
+.containe {
+  display: flex;
+   justify-content: center;
+   
+ 
+ }
+ .containe .signup-form {
+     min-width: 400px; 
+     margin: 60px auto; 
+     padding: 40px;
+      background-color: white;
+      /* border: 1px solid;
+   
+      box-shadow: 5px 10px orange; */
+  
+   } 
+ input[type=email],input[type=password]{
+   width: 100%;
+   padding: 12px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   resize: vertical;
+ }
+/* 
+  input[type=email],input[type=password]:focus{
+   border: 1px solid orange;
+   background-color: lavender;
+ }  */
+
+ #email:focus{
+   border: 1px solid orange;
+   background-color: lavender;
+ }
+  
+ #password:focus{
+   border: 1px solid orange;
+   background-color: lavender;
+ } 
+ .bt{
+  width: 109%;
+  padding: 12px;
+ 
+  border: 1px solid orange;
+  border-radius: 4px;
+  resize: vertical;
+  color:orange;
+  font-weight: bold;
+  margin-left: -10px;
+ }
+ 
+ /* button[type=submit] {
+   width: 100%;
+   padding: 12px;
+  
+   border: 1px solid orange;
+   border-radius: 4px;
+   resize: vertical;
+   color:orange;
+   font-weight: bold;
+  
+ } */
+ .col{
+   padding: 12px;
+   resize: vertical;
+  
+ }
+ 
+ button[type=submit]:hover {
+   background-color: #006;
+   color: orange;
+ }
+ 
+ 
+ .col-25 {
+   float: left;
+   width: 40%;
+   margin-top: 6px;
+   color: #006;
+ }
+ 
+ 
+ @media screen and (max-width: 600px) {
+   .col-25,  input[type=email],input[type=password]{
+     width: 100%;
+     margin-top: 0;
+   }
+ }
+ 
+   .bg{
+     background-image: url(../../Images/bgImage.jfif);
+    min-height: 88.50vh;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+   min-width: 100%;
+   }
+   .h1{
+     text-align: center;
+     color: #006;
+   }
+  
