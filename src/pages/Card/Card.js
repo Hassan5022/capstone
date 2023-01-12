@@ -5,6 +5,7 @@ const Card = ({ doctors }) => {
 	return (
 		<div className="section-three">
 			<div className="cards">
+				{console.log("das")}
 				{doctors && doctors.map((doctor) => (
 					<div key={doctor.id} className="card">
 						<img src={doctor.url} alt="DocImage" className="DocImage"></img>
@@ -12,7 +13,7 @@ const Card = ({ doctors }) => {
 					</div>
 				))}
 			</div>
-		</div>
+		</div >
 	);
 };
 

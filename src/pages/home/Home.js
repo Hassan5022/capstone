@@ -69,10 +69,10 @@ const Home = () => {
 			<section>
 				<Consult />
 			</section>
-			<section>
+			{doctors && doctors.length !== 0 && <section>
 				{doctor_error && <p>{doctor_error}</p>}
 				{doctors && <Card doctors={doctors} />}
-			</section>
+			</section>}
 			<section>
 				<Doctor />
 			</section>
