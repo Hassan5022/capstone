@@ -5,3 +5,8 @@
   font-family: 'Poppins', sans-serif;
   list-style-type: none;
 }
+
+.error{
+    text-align: center;
+    padding-top: 20px;
+}

@@ -39,9 +39,8 @@ export const AuthContextProvider = ({ children }) => {
 	useEffect(() => {
 		dispatch({type: "DOCTOR_DATA", payload:documents})
 		dispatch({type: "DOCTOR_DATA_ERROR", payload:error})
-	},[documents])
-	
-	
+	}, [documents])
+
 	useEffect(() => {
 		const unsub = projectAuth.onAuthStateChanged((user) => {
 			dispatch({ type: "AUTH_IS_READY", payload: user });

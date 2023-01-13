@@ -1,7 +1,7 @@
-.section-three {
+/* .section-three {
 	min-height: 65vh;
 	background-color: antiquewhite;
-}
+} */
 .cards {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -20,9 +20,18 @@
 	border-bottom-right-radius: 10px;
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 	justify-content: center;
-  position: relative;
-  box-shadow: 3px 3px 5px 6px #ccc;
+	position: relative;
+	box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.card .doctor-details {
+	padding-top: 3px;
+	font-size: 20px;
+	text-transform: capitalize;
+	text-align: center;
+	line-height: 30px;
 }
 
 @media (min-width: 600px) {
@@ -65,36 +74,26 @@
 		left: 95px;
 	}
 }
-
- .card .doctor-details{
-	padding-top: 3px;
-	font-size: 20px;
-	text-transform: capitalize;
-	text-align: center;
-	line-height: 30px;
-}
-.view-more{
-	background-color:#006;
-    color: white;
-    font-size: 16px;
-    /* border: 1px solid #ff9e15; */
-  padding: 10px;
-  border-radius: 10px;
-  width: 140px;
-    cursor: pointer;
+.view-more {
+	background-color: #006;
+	color: white;
+	font-size: 16px;
+	padding: 10px;
+	border-radius: 10px;
+	width: 140px;
+	cursor: pointer;
 	border: 1px solid #006;
 }
 
-.view-more:hover{
+.view-more:hover {
 	background-color: white;
 	color: #006;
 	border: 1px solid #006;
 }
 
-.view{
+.view {
 	padding-top: 15px;
 }
-.card .s{
+.card .s {
 	padding-top: 20px;
-
 }

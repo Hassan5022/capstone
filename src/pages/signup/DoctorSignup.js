@@ -4,12 +4,13 @@
 import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import { storageRef } from "../../firebase/config";
-import { useFirestore } from "../../hooks/useFirestore";
 import { Link } from "react-router-dom";
+import { useFirestore } from "../../hooks/useFirestore";
 
 export default function Signup() {
 	const [email, setEmail] = useState("");
 	const [displayName, setdisplayName] = useState("");
+	const [experience, setExperience] = useState("");
 	const [city, setCity] = useState("");
 	const [category, setCategory] = useState("dentist");
 	const [photo, setPhoto] = useState("");
@@ -18,18 +19,21 @@ export default function Signup() {
 	const [url, setUrl] = useState("");
 	const { error, isPending, signup } = useSignup();
 	const { addDocument } = useFirestore("doctors");
+	const role = "doctor";
 
 	useEffect(() => {
 		if (url) {
-			signup(email, password, displayName, url);
-			addDocument({
-				name: displayName,
+			signup(
+				addDocument,
 				email,
+				password,
+				displayName,
+				url,
+				role,
 				city,
 				category,
-				role: "doctor",
-				url,
-			});
+				experience
+			);
 		}
 	}, [url]);
 
@@ -49,7 +53,6 @@ export default function Signup() {
 				// Observe state change events such as progress, pause, and resume
 				// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
 				var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-				console.log("Upload is " + progress + "% done");
 				setPhotoPending(progress);
 			},
 			(error) => {
@@ -70,7 +73,9 @@ export default function Signup() {
 		<div className="bg">
 			<div className="containe">
 				<form onSubmit={handleSubmit} className="signup-form">
-					<h3 className="h1">SignUP<span style={{color:'orange'}}> Form</span></h3>
+					<h3 className="h1">
+						SignUP<span style={{ color: "orange" }}> Form</span>
+					</h3>
 
 					<div className="col-25">
 						<label>Email</label>
@@ -115,19 +120,14 @@ export default function Signup() {
 					</div>
 
 					<div className="col-25">
-						<label>City</label>
-					</div>
-					<div>
-						<input onChange={(e) => setCity(e.target.value)}
-				value={city} type="text" id="city" name="firstname" placeholder="City" />
-					</div>
-
-					<div className="col-25">
 						<label>Category</label>
 					</div>
 					<div>
-						<select onChange={(e) => setCategory(e.target.value)}
-				value={category} id="category">
+						<select
+							onChange={(e) => setCategory(e.target.value)}
+							value={category}
+							id="category"
+						>
 							<option value="dentist">Dentist</option>
 							<option value="homeophethic">HomeoPhethic</option>
 							<option value="dermatology">Dermatology</option>
@@ -142,16 +142,54 @@ export default function Signup() {
 					</div>
 
 					<div className="col-25">
+						<label>Experience</label>
+					</div>
+					<div>
+						<input
+							type="text"
+							id="experience"
+							required
+							placeholder=" experience"
+							onChange={(e) => setExperience(e.target.value)}
+							value={experience}
+						/>
+					</div>
+
+					<div className="col-25">
+						<label>City</label>
+					</div>
+					<div>
+						<input
+							onChange={(e) => setCity(e.target.value)}
+							value={city}
+							type="text"
+							id="city"
+							name="firstname"
+							placeholder="City"
+						/>
+					</div>
+					<div className="col-25">
 						<label>Photo</label>
 					</div>
 					<div>
 						<input
 							type="file"
 							name="firstname"
-              placeholder="Picture"
-              onChange={(e) => setPhoto(e.target.files[0])}
+							placeholder="Picture"
+							onChange={(e) => setPhoto(e.target.files[0])}
 						/>
-						{photoPending && <p style={{color:'red',fontWeight:'bolder',marginLeft:'280px',marginTop:'-20px'}}>{parseInt(photoPending) + "%"}</p>}
+						{photoPending && (
+							<p
+								style={{
+									color: "red",
+									fontWeight: "bolder",
+									marginLeft: "280px",
+									marginTop: "-20px",
+								}}
+							>
+								{parseInt(photoPending) + "%"}
+							</p>
+						)}
 					</div>
 
 					<div className="col">
@@ -164,9 +202,8 @@ export default function Signup() {
 							<button type="submit" className="bt" disabled>
 								Loading
 							</button>
-            )}
-          
-						{error && <p style={{color:'red'}}>{error}</p>}
+						)}
+						{error && <p style={{ color: "red", width: "290px" }}>{error}</p>}
 					</div>
 					<div>
 						<span style={{ color: "#006" }}>

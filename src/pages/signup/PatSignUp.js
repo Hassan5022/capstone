@@ -16,17 +16,11 @@ export default function PatSignUp() {
 	const [url, setUrl] = useState("");
 	const { addDocument } = useFirestore("patients");
 	const [photoPending, setPhotoPending] = useState(false);
+	const role = "patient"
   
   useEffect(() => {
 		if (url) {
-		 signup(email, password, displayName, url);
-			
-			addDocument({
-				name: displayName,
-				email,
-				role: "patient",
-				url,
-			});
+			signup(addDocument, email, password, displayName, url, role);
 		}
 	}, [url]);
 
@@ -34,7 +28,6 @@ export default function PatSignUp() {
 		e.preventDefault();
 
 		var uploadTask = storageRef.child(`images/${photo.name}`).put(photo)
-		console.log(uploadTask);
 
 		// Register three observers:
 		// 1. 'state_changed' observer, called any time the state changes
@@ -46,7 +39,6 @@ export default function PatSignUp() {
 				// Observe state change events such as progress, pause, and resume
 				// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
 				var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-				console.log("Upload is " + progress + "% done");
 				setPhotoPending(progress);
 			},
 			(error) => {
@@ -124,9 +116,7 @@ export default function PatSignUp() {
 								Loading
 							</button>
 						)}
-						{error && <p style={{color:'red'}}>{error}</p>}
-						{/* {error && <p>{error}</p>}
-						{photoPending && <p>{parseInt(photoPending) + "%"}</p>} */}
+						{error && <p style={{ color: 'red', width:"290px"}}>{error}</p>}
 					</div>
 					<div>
 						<span style={{ color: "#006" }}>
@@ -135,7 +125,6 @@ export default function PatSignUp() {
 								to="/login"
 								style={{ textDecoration: "none", color: "orange" }}
 							>
-								{" "}
 								Login
 							</Link>
 						</span>
