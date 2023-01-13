@@ -1,5 +1,5 @@
 .main {
-	min-height: 65vh;
+	min-height: 40vh;
 	padding-top: 50px;
 	background-color: lavender;
 }
@@ -22,6 +22,14 @@
 	align-items: flex-start;
 	padding: 12px;
 }
+
+@media screen and (max-width: 400px) {
+	.main{min-height:50vh;}
+}
+
+
+
+
 
 @media screen and (max-width: 600px) {
 	.main .containers .left img {

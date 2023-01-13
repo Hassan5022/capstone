@@ -12,6 +12,7 @@ import DoctorSignup from "./pages/signup/DoctorSignup";
 import PatSignUp from "./pages/signup/PatSignUp";
 import DoctorDetails from "./pages/DoctorDetails/DoctorDetails";
 import Notifcation from "./pages/notification/Notifcation";
+import SelectTime from "./pages/SelectTime/SelectTime";
 
 function App() {
 	const { authIsReady, user, doctors} = useAuthContext();
@@ -48,6 +49,9 @@ function App() {
 						{/* DoctorDetails */}
 						{user && <Route path="/doctor-details" element={<DoctorDetails />} />}
 						{!user && <Route path="/doctor-details" element={<Navigate to={"/login"} />} />}
+
+						{user && <Route path="/select-time" element={<SelectTime />} />}
+						{!user && <Route path="/select-time" element={<Error/>} />}
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error/>} />

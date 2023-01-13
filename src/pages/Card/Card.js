@@ -15,15 +15,13 @@ const Card = ({ doctors }) => {
 						<p className="doctor-details">
 							{doctor.experience} years experience
 						</p>
-						<button
-							className="doctor-details"
-							onClick={() => Navigate("/doctor-details", {state: {data:doctor}})}
-						>
-							View More
-						</button>
+						<div className="doctor-details view">
+							<button className="view-more" onClick={() => Navigate('/doctor-details', {state: {data:doctor}})}>view more
+							</button>
+						</div>
 					</div>
 				))}
-		</div>
+			</div>
 	);
 };
 

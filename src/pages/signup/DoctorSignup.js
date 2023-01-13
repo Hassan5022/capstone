@@ -1,5 +1,5 @@
 // styles
-import "./DoctorSignup.css";
+// import "./DoctorSignup.css";
 // hooks
 import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
@@ -19,11 +19,21 @@ export default function Signup() {
 	const [url, setUrl] = useState("");
 	const { error, isPending, signup } = useSignup();
 	const { addDocument } = useFirestore("doctors");
-	const role = "doctor"
+	const role = "doctor";
 
 	useEffect(() => {
 		if (url) {
-			signup(addDocument, email, password, displayName, url, role, city, category, experience);
+			signup(
+				addDocument,
+				email,
+				password,
+				displayName,
+				url,
+				role,
+				city,
+				category,
+				experience
+			);
 		}
 	}, [url]);
 
@@ -168,6 +178,18 @@ export default function Signup() {
 							placeholder="Picture"
 							onChange={(e) => setPhoto(e.target.files[0])}
 						/>
+						{photoPending && (
+							<p
+								style={{
+									color: "red",
+									fontWeight: "bolder",
+									marginLeft: "280px",
+									marginTop: "-20px",
+								}}
+							>
+								{parseInt(photoPending) + "%"}
+							</p>
+						)}
 					</div>
 
 					<div className="col">
@@ -181,19 +203,7 @@ export default function Signup() {
 								Loading
 							</button>
 						)}
-						{photoPending && (
-							<p
-								style={{
-									color: "red",
-									textAlign: "center",
-									paddingTop: "10px",
-									fontWeight: "bolder",
-								}}
-							>
-								{parseInt(photoPending) + "%"}
-							</p>
-						)}
-						{error && <p style={{ color: "red" }}>{error}</p>}
+						{error && <p style={{ color: "red", width: "290px" }}>{error}</p>}
 					</div>
 					<div>
 						<span style={{ color: "#006" }}>

@@ -1,10 +1,10 @@
 import React from "react";
 import "./DoctorDetails.css";
-import icon from "../../Images/online.png";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const DoctorDetails = () => {
-  const location = useLocation();
+	const location = useLocation();
+	const Navigate = useNavigate();
 
 	return (
 		<div className="DoctorDetails">
@@ -14,11 +14,11 @@ const DoctorDetails = () => {
 						<img src={location.state.data.url} alt="profile" className="i" />
 					</div>
 					<div className="rig">
-            <h5>{location.state.data.name}</h5>
+						<h5>{location.state.data.name}</h5>
 						<p>{location.state.data.email}</p>
 						<p>{location.state.data.category}</p>
 						<p>{location.state.data.experience} years experience</p>
-            <p>{location.state.data.city}</p>
+						<p>{location.state.data.city}</p>
 					</div>
 				</div>
 				<div className="flex-righ">
@@ -66,7 +66,9 @@ const DoctorDetails = () => {
 						</select>
 					</div>
 					<div style={{ textAlign: "center" }}>
-						<button className="b">book video consultation</button>
+						<button className="b" onClick={() => Navigate("/select-time")}>
+							book video consultation
+						</button>
 					</div>
 				</div>
 			</div>
