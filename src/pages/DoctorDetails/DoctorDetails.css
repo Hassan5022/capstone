@@ -1,0 +1,154 @@
+.DoctorDetails{
+    background-color: bisque;
+   min-height: 87vh;
+   min-width: 100%;
+}
+  .fle{
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+   
+  }
+  
+  .flex-lef {
+    background-color: #f1f1f1;
+    height: 45vh;
+    flex: 70%;
+    border-radius: 10px;
+    margin: 0 auto;
+	box-shadow: 3px 3px 5px 6px #ccc;
+  }
+  .fle .flex-lef .lef{
+    width:340px;
+    height: 340px;
+   
+  }
+  .fle .flex-lef .lef .i {
+	width: 320px;
+	margin-top: 10px;
+    margin-left: 10px;
+	height: 320px;
+}
+
+@media screen and (max-width: 900px) {
+    .fle .flex-lef .lef{
+        width:295px;
+        height: 295px;
+      }
+
+	.fle .flex-lef .lef .i  {
+        width:280px;
+        height: 280px;
+	}
+    .fle .flex-lef .rig{
+        max-width: 100px;
+        /* font-size: 20px; */
+        /* align-items: center; */
+        margin-left: -500px;
+        
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+  .fle .flex-lef .lef{
+      width:255px;
+      height: 255px;
+    }
+
+.fle .flex-lef .lef .i  {
+      width:250px;
+      height: 200px;
+}
+
+ 
+
+
+}
+
+
+
+
+
+
+
+.fle .flex-lef .rig{
+    
+    align-items: center;
+    margin-left: 220px;
+    margin-top: -250px;
+   
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 1300px) {
+    .fle .flex-lef .lef{
+        width:295px;
+        height: 295px;
+      }
+
+	.fle .flex-lef .lef .i  {
+        width:280px;
+        height: 280px;
+	}
+    .fle .flex-lef .rig{
+        max-width: 200px;
+   align-items: center;
+   margin-left: 400px;
+    }
+   
+
+
+}
+
+  .flex-righ {
+    background-color: #f1f1f1;
+    flex: 30%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    padding-top: 10px;
+    color: #006;
+   
+  }
+  .sel{
+    width: 200px !important;
+
+  }
+  .sel:focus{
+    border: 1px solid #006;
+    color: orange;
+  }
+   @media (max-width: 800px) {
+    .fle {
+      flex-direction: column;
+      
+    }
+   
+}
+@media (max-width: 400px) {
+    .sel{
+        width: 100px !important;
+    }
+   
+}
+
+
+.b{
+	background-color: white;
+	padding: 10px;
+	color: orange;
+	font-size: 16px;
+	border: 1px solid orange;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.b:hover{
+    background-color: #006;
+    color: orange;
+}
+
+    

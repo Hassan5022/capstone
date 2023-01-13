@@ -22,6 +22,7 @@
 	align-items: center;
 	justify-content: center;
   position: relative;
+  box-shadow: 3px 3px 5px 6px #ccc;
 }
 
 @media (min-width: 600px) {
@@ -52,4 +53,19 @@
 }
 .card:hover .DocImage {
 	border: 4px solid orange;
+}
+@media (max-width: 600px) {
+	.DocImage {
+		left: 180px;
+	}
+}
+@media (max-width: 500px) {
+	.DocImage {
+		left: 150px;
+	}
+}
+@media (max-width: 400px) {
+	.DocImage {
+		left: 70px;
+	}
 }
