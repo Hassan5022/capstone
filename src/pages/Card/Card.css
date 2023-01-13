@@ -1,7 +1,7 @@
-.section-three {
+/* .section-three {
 	min-height: 65vh;
 	background-color: antiquewhite;
-}
+} */
 .cards {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -20,9 +20,16 @@
 	border-bottom-right-radius: 10px;
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 	justify-content: center;
-  position: relative;
-  box-shadow: 3px 3px 5px 6px #ccc;
+	position: relative;
+	box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.card .doctor-details{
+	font-size: 20px;
+	text-transform:capitalize;
+    line-height: 30px;
 }
 
 @media (min-width: 600px) {

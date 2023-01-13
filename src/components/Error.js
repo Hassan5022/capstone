@@ -1,25 +1,15 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Error.css'
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Error.css";
 
-export const Error = ({ user }) => {
+export const Error = () => {
+	const navigate = useNavigate();
 
-    const navigate = useNavigate()
+	useEffect(() => {
+		setInterval(() => {
+			navigate("/");
+		}, 2000);
+	}, [navigate]);
 
-    useEffect(() => {
-        if (user) {
-            setInterval(() => {
-                navigate('/')
-            }, 2000)
-        }
-        if (!user) {
-            setInterval(() => {
-                navigate('/login')
-            }, 2000)
-        }
-    }, [user, navigate])
-
-  return (
-    <div className='error'>Invalid url!</div>
-  )
-}
+	return <h2 className="error">Invalid url!</h2>;
+};

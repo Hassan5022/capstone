@@ -1,12 +1,5 @@
 import React from "react";
 import "./Footer.css";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { library} from '@fortawesome/fontawesome-svg-core'
-// import {faMoneyBillTransfer as faMoneyBillTransfers} from '@fortawesome/free-solid-svg-icons'
-// import {faHeadphones as  faHeadphoness} from '@fortawesome/free-solid-svg-icons'
-// import {faShieldCheck as  faShieldChecks} from '@fortawesome/free-solid-svg-icons'
-
-// library.add(faHeadphoness, faMoneyBillTransfers,faShieldChecks)
 import ver from "../../Images/ver.png";
 import Money from "../../Images/money.png";
 import Secure from "../../Images/sec.png";

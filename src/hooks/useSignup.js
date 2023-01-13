@@ -2,50 +2,88 @@
 import { useState, useEffect } from "react";
 import { useAuthContext } from "./useAuthContext";
 // config file
-import { projectAuth } from "../firebase/config"
+import { projectAuth } from "../firebase/config";
 
 export const useSignup = () => {
+	const [isCancelled, setIsCancelled] = useState(false);
+	const [error, setError] = useState(null);
+	const [isPending, setIsPending] = useState(false);
+    const { dispatch } = useAuthContext();
     
-    const [isCancelled, setIsCancelled] = useState(false);
-    const [error, setError] = useState(null)
-    const [isPending, setIsPending] = useState(false)
-    const { dispatch } = useAuthContext()
+    const signup = async (
+        addDocument,
+        email,
+		password,
+		displayName,
+		url,
+		role,
+		city,
+		category,
+		experience
+    ) => {
+        console.log(role);
+        setError(null);
+		setIsPending(true);
 
-    const signup = async (email, password, displayName, url) => {
-        setError(null)
-        setIsPending(true)
+		try {
+			// signup user
+			const res = await projectAuth.createUserWithEmailAndPassword(
+				email,
+				password
+			);
 
-        try {
-            // signup user
-            const res = await projectAuth.createUserWithEmailAndPassword(email, password)
-            
-            if (!res) {
-                throw new Error('Could not complete signup')
+			if (!res) {
+				throw new Error("Could not complete signup");
+			}
+
+			// add display name to user
+			await res.user.updateProfile({ displayName, photoURL: url });
+
+			// dispatch login user
+			dispatch({ type: "LOGIN", payload: res.user });
+
+            if (role === "doctor") {
+				addDocument({
+					name: displayName,
+					email,
+					city,
+					category,
+					role,
+					url,
+					experience,
+					id: res.user.uid,
+					notification: [],
+				});
             }
-
-            // add display name to user
-            await res.user.updateProfile({displayName, photoURL:url})
-
-            // dispatch login user
-            dispatch({type: 'LOGIN', payload: res.user})
-
-            //update state
-            if (!isCancelled) {
-                setIsPending(false);
-				setError(null);
+            
+			if (role === "patient") {
+                addDocument({
+                    name: displayName,
+                    email,
+                    role,
+                    url,
+                    id: res.user.uid,
+					notification: []
+                });
 			}
 
-        } catch (err) {
-            if (!isCancelled) {
-                console.log(err.message);
-				setError(err.message);
+			//update state
+			if (!isCancelled) {
 				setIsPending(false);
+                setError(null);
 			}
-        }
-        
-    }
+		} catch (err) {
+			if (!isCancelled) {
+				console.log(err.message);
+				setError(err.message);
+                setIsPending(false);
+			}
+		}
+	};
 
-    useEffect(() => {return () => setIsCancelled(true)}, []);
+	useEffect(() => {
+		return () => setIsCancelled(true);
+	}, []);
 
-  return {error, isPending, signup}
-}
+	return { error, isPending, signup };
+};

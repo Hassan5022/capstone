@@ -19,7 +19,7 @@ export const useCollection = (collection, _orderBy) => {
 			(snapshot) => {
 				let results = [];
 				snapshot.docs.forEach((doc) => {
-					results.push({ ...doc.data(), id: doc.id });
+					results.push({ ...doc.data()});
 				});
 
 				// update states

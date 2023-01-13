@@ -8,9 +8,10 @@ import Login from "./pages/login/Login";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
 import Card from "./pages/Card/Card";
-import Signup from "./pages/signup/DoctorSignup";
+import DoctorSignup from "./pages/signup/DoctorSignup";
 import PatSignUp from "./pages/signup/PatSignUp";
 import DoctorDetails from "./pages/DoctorDetails/DoctorDetails";
+import Notifcation from "./pages/notification/Notifcation";
 
 function App() {
 	const { authIsReady, user, doctors} = useAuthContext();
@@ -21,27 +22,35 @@ function App() {
 				<BrowserRouter>
 					<Navbar />
 					<Routes>
-						{/* Home */}
 						
-						{<Route path="/" element={<Home />} />}
-						{/* {!user && <Route path="/" element={<Navigate to={"/Home"} />} />} */}
+						{/* Home */}
+						<Route path="/" element={<Home />} />
 					
 						{/* Login */}
 						{user && <Route path="/login" element={<Navigate to={"/"} />} />} 
 						{!user && <Route path="/login" element={<Login />} />}
 
-						{/* Signup */}
+						{/* DoctorSignup */}
 						{user && <Route path="/doctor-signup" element={<Navigate to={"/"} />} />}
-						{!user && <Route path="/doctor-signup" element={<Signup/>} />}
+						{!user && <Route path="/doctor-signup" element={<DoctorSignup/>} />}
 						
+						{/* {PatientSignup */}
 						{user && <Route path="/patient-signup" element={<Navigate to={"/"} />} />}
 						{!user && <Route path="/patient-signup" element={<PatSignUp/>} />}
 
-						<Route path="/doctors" element={<Card doctors={doctors}/>} />
-						<Route path="/doctor-details" element={<DoctorDetails/>} />
+						{/* Doctors */}
+						<Route path="/doctors" element={<Card doctors={doctors} />} />
+
+						{/* Notification */}
+						{user && <Route path="/notification" element={<Notifcation doctors={doctors} user={user} />} />}
+						{!user && <Route path="/notification" element={<Error/>}  />}
+						
+						{/* DoctorDetails */}
+						{user && <Route path="/doctor-details" element={<DoctorDetails />} />}
+						{!user && <Route path="/doctor-details" element={<Navigate to={"/login"} />} />}
 
 						{/* Invalid url */}
-						<Route path="*" element={<Error user = {user}/>} />
+						<Route path="*" element={<Error/>} />
 					</Routes>
 				</BrowserRouter>
 			)}
