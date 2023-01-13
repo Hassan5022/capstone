@@ -110,8 +110,9 @@ export default function PatSignUp() {
               placeholder="Picture"
               onChange={(e) => setPhoto(e.target.files[0])}
 						/>
+						{photoPending && <p style={{color:'red',fontWeight:'bolder',marginLeft:'280px',marginTop:'-20px'}}>{parseInt(photoPending) + "%"}</p>}
 					</div>
-
+					
 					<div className="col">
 						{!isPending && (
 							<button type="submit" className="bt">
@@ -123,7 +124,6 @@ export default function PatSignUp() {
 								Loading
 							</button>
 						)}
-						{photoPending && <p style={{color:'red' ,textAlign:'center',paddingTop:'10px',fontWeight:'bolder'}}>{parseInt(photoPending) + "%"}</p>}
 						{error && <p style={{color:'red'}}>{error}</p>}
 						{/* {error && <p>{error}</p>}
 						{photoPending && <p>{parseInt(photoPending) + "%"}</p>} */}

@@ -19,11 +19,18 @@
 	padding: 10px;
 	width: 380px !important;
 }
-.a {
+.a{
 	padding: 10px;
 	width: 100px;
-	color: #ff9e15;
+	color: #ff9e15 ;
+	border: 1px solid orange;
 	font-weight: bolder;
+	cursor: pointer;
+}
+.a:hover{
+	color: #ff9e15 ;
+	border: 1px solid orange;
+	background-color: white !important;
 }
 
 @media screen and (max-width: 970px) {

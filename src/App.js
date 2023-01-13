@@ -11,6 +11,7 @@ import Card from "./pages/Card/Card";
 import Signup from "./pages/signup/DoctorSignup";
 import PatSignUp from "./pages/signup/PatSignUp";
 import DoctorDetails from "./pages/DoctorDetails/DoctorDetails";
+import SelectTime from "./pages/SelectTime/SelectTime";
 
 function App() {
 	const { authIsReady, user, doctors} = useAuthContext();
@@ -39,6 +40,8 @@ function App() {
 
 						<Route path="/doctors" element={<Card doctors={doctors}/>} />
 						<Route path="/doctor-details" element={<DoctorDetails/>} />
+						<Route path="/select-time" element={<SelectTime/>} />
+
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error user = {user}/>} />
