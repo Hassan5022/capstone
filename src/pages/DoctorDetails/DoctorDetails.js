@@ -1,8 +1,10 @@
 import React from "react";
 import "./DoctorDetails.css";
 import icon from "../../Images/online.png";
+import { useNavigate } from 'react-router'
 
 const DoctorDetails = () => {
+  const Navigate=useNavigate();
   return (
     <div className="DoctorDetails">
       <div className="fle">
@@ -54,14 +56,14 @@ const DoctorDetails = () => {
           >
             <p style={{  marginTop:'10px' }}>Available tomorrow:</p>
             <select className="sel">
-              <option >Monday 4:30pm-8pm</option>
+              <option >Monday 4:00pm-8:00pm</option>
               <option >Wednesday 4:30pm-8pm</option>
               <option >Friday 4:30pm-8pm</option>
               
             </select>
           </div>
           <div style={{textAlign: "center"}}>
-            <button className="b">book video consultation</button>
+            <button className="b" onClick={()=>Navigate('/select-time')}>book video consultation</button>
           </div>
         </div>
       </div>

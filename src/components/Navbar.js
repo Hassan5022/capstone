@@ -14,7 +14,7 @@ export default function Navbar() {
 		<nav className="navbar">
 			<ul>
 				<li className="title">
-					<Link to="/">Capstone</Link>
+					<Link to="/" style={{color:'#006'}}>Med<span style={{color:'orange'}}>Cure</span></Link>
 				</li>
 				{!user && (
 					<>

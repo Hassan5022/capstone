@@ -1,5 +1,5 @@
 // styles
-import "./DoctorSignup.css";
+// import "./DoctorSignup.css";
 // hooks
 import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
@@ -151,6 +151,7 @@ export default function Signup() {
               placeholder="Picture"
               onChange={(e) => setPhoto(e.target.files[0])}
 						/>
+						{photoPending && <p style={{color:'red',fontWeight:'bolder',marginLeft:'280px',marginTop:'-20px'}}>{parseInt(photoPending) + "%"}</p>}
 					</div>
 
 					<div className="col">
@@ -164,7 +165,7 @@ export default function Signup() {
 								Loading
 							</button>
             )}
-            {photoPending && <p style={{color:'red' ,textAlign:'center',paddingTop:'10px',fontWeight:'bolder'}}>{parseInt(photoPending) + "%"}</p>}
+          
 						{error && <p style={{color:'red'}}>{error}</p>}
 					</div>
 					<div>

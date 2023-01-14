@@ -7,10 +7,11 @@
     flex-direction: row;
     font-size: 30px;
     text-align: center;
+   
   }
   
   .item-left {
-    padding: 20px;
+   padding-top: 120px;
     flex: 50%;
     min-height: 60vh
 
@@ -29,7 +30,7 @@
 
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     .flex-contain {
       flex-direction: column;
       flex-direction: column-reverse;

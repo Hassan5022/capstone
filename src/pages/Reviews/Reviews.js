@@ -23,12 +23,11 @@ const Reviews = () => {
 					<p className="review-text">
 						"Great platform, very efficient and works really well on both phone
 						and web. I think this is the most easiest way of booking
-						appointments in Pakistan as it has made the whole process much more
-						efficient"
+						appointments in Pakistan as it has made the whole process "
 					</p>
 					<img src={DocImage} alt="Doct" className="Doc"></img>
 				</div>
-				<div className="Review">
+				<div className="Review" style={{marginTop:'10px'}}>
 					<div className="ratings">
 						<FontAwesomeIcon icon={fasFaStar} />
 						<FontAwesomeIcon icon={fasFaStar} />
@@ -43,7 +42,7 @@ const Reviews = () => {
 					</p>
 					<img src={DocImage2} alt="Doct" className="Doc"></img>
 				</div>
-				<div className="Review">
+				<div className="Review" style={{marginTop:'10px'}} >
 					<div className="ratings">
 						<FontAwesomeIcon icon={fasFaStar} />
 						<FontAwesomeIcon icon={fasFaStar} />

@@ -10,11 +10,6 @@
     padding: 40px;
      background-color: white;
      box-shadow: 3px 3px 5px 6px #ccc;
-     /* z-index: 10px; */
-     /* border: 1px solid;
-  
-     box-shadow: 5px 10px orange; */
- 
   } 
 input[type=text],select {
   width: 100%;
@@ -72,4 +67,3 @@ button[type=submit]:hover {
     text-align: center;
     color: #006;
   }
- 

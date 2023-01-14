@@ -1,5 +1,5 @@
 .main6{
-    min-height: 90vh;
+  min-height:60vh;
     padding: 80px 0 0;
     /* background-image:url(../../Images/bgImage.jfif); */
     background-color: black;
@@ -27,22 +27,23 @@
    }
    .footer  p{
     padding-top: 50px;
-    margin-left: 160px;
+    /* margin-left: 160px; */
+    text-align: center;
    }
 
-   @media screen and (max-width: 600px) {
+   /* @media screen and (max-width: 600px) {
     
     .footer  p{
        
         margin-left: 70px;
        }
   
-  }
+  } */
 
   .footer-icon{
     display: flex;
     justify-content: space-around;
-    padding-top: 200px;
+    padding-top: 60px;
    flex-direction: row;
   }
 

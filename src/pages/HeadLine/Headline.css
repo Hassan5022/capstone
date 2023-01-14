@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    font-size: 30px;
 }
 marquee {
     width: 100%;
@@ -15,3 +16,9 @@ marquee {
   .marq{
    padding: 40px;
   }
+  @media (max-width: 400px) {
+    .head{
+        font-size: 20px;
+    }
+	
+}

@@ -7,9 +7,17 @@
 	margin: 60px auto;
 	padding: 40px;
 	background-color: white;
-	/* border: 1px solid;
-     
-        box-shadow: 5px 10px orange; */
+	box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+@media screen and (max-width: 400px) {
+	.containe .signup-form {
+		min-width: 100px;
+		margin: 60px auto;
+		padding: 30px;
+		background-color: white;
+		
+	}
 }
 input[type="text"],
 input[type="email"],
@@ -22,11 +30,11 @@ select {
 	resize: vertical;
 }
 
+
 .col {
 	padding: 12px;
 	resize: vertical;
 }
-
 button[type="submit"]:hover {
 	background-color: #006;
 	color: orange;
@@ -35,6 +43,15 @@ button[type="submit"]:hover {
 	border: 1px solid orange;
 	background-color: lavender;
 }
+#city:focus{
+	border: 1px solid orange;
+	background-color: lavender;
+  } 
+  #category:focus{
+	border: 1px solid orange;
+	background-color: lavender;
+  } 
+  
 .col-25 {
 	float: left;
 	width: 40%;
@@ -66,3 +83,33 @@ button[type="submit"]:hover {
 	text-align: center;
 	color: #006;
 }
+#email:focus{
+	border: 1px solid orange;
+	background-color: lavender;
+  }
+   
+  #password:focus{
+	border: 1px solid orange;
+	background-color: lavender;
+  } 
+  .bt{
+   width: 109%;
+   padding: 12px;
+   border: 1px solid orange;
+   border-radius: 4px;
+   resize: vertical;
+   color:orange;
+   font-weight: bold;
+   margin-left: -10px;
+   cursor: pointer;
+  }
+ 
+ 
+  .col .error{
+   width: 312px;
+  }
+  button[type=submit]:hover {
+	background-color: #006;
+	color: orange;
+  }
+  
