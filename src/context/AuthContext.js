@@ -17,8 +17,6 @@ const authReducer = (state, action) => {
 			return { ...state, user: action.payload, authIsReady: true };
 		case "DOCTOR_DATA":
 			return { ...state, doctors: action.payload };
-		// case "DOCTOR_NOTIFICATION":
-		// 	return { ...state, doctorNotifications: action.payload };
 		case "PATIENT_DATA":
 			return { ...state, patients: action.payload };
 		case "DOCTOR_DATA_ERROR":
@@ -35,7 +33,6 @@ export const AuthContextProvider = ({ children }) => {
 		user: null,
 		authIsReady: false,
 		doctors: null,
-		// doctorNotifications:null,
 		patients: null,
 		doctor_error: null,
 		patient_error: null,
@@ -46,7 +43,6 @@ export const AuthContextProvider = ({ children }) => {
 		// ["uid", "==", user.uid],
 		// ["createdAt", "ascn"]
 	);
-	// const { notifications } = useNotificationCollection("doctors");
 
 	const { patientDocuments, patientError } = usePatientCollection("patients");
 
@@ -55,7 +51,6 @@ export const AuthContextProvider = ({ children }) => {
 		dispatch({ type: "DOCTOR_DATA_ERROR", payload: error });
 		dispatch({ type: "PATIENT_DATA", payload: patientDocuments });
 		dispatch({ type: "PATIENT_DATA_ERROR", payload: patientError });
-		// dispatch({ type: "DOCTOR_NOTIFICATION", payload: notifications });
 	}, [documents, patientDocuments]);
 
 	useEffect(() => {
