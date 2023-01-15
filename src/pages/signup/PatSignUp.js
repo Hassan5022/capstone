@@ -22,8 +22,8 @@ export default function PatSignUp() {
 		if (url) {
 			signup(addDocument, email, password, displayName, url, role);
 		}
-	}, [url]);
-
+  }, [url]);
+	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
@@ -48,7 +48,6 @@ export default function PatSignUp() {
 				// Handle successful uploads on complete
 				// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 				uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-					console.log("File available at", downloadURL);
 					setUrl(downloadURL)
 				});
 			}

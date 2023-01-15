@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 // config file
 import { projectFirestore } from "../firebase/config";
 
-export const useCollection = (collection, _orderBy) => {
-	const [documents, setDocuments] = useState(null);
-    const [error, setError] = useState(null);
+export const usePatientCollection = (collection, _orderBy) => {
+	const [patientDocuments, setPatientDocuments] = useState(null);
+    const [patientError, setPatientError] = useState(null);
 
 	// to prevent infinite loop
 	const orderBy = useRef(_orderBy).current;
@@ -19,16 +19,16 @@ export const useCollection = (collection, _orderBy) => {
 			(snapshot) => {
 				let results = [];
 				snapshot.docs.forEach((doc) => {
-					results.push({ ...doc.data(), docID:doc.id});
+					results.push({ ...doc.data(), docID: doc.id});
 				});
 
 				// update states
-				setDocuments(results);
-				setError(null);
+				setPatientDocuments(results);
+				setPatientError(null);
 			},
 			(error) => {
 				console.log(error);
-				setError("Could not fetch the data");
+				setPatientError("Could not fetch the data");
 			}
 		);
 
@@ -36,5 +36,5 @@ export const useCollection = (collection, _orderBy) => {
 		return () => unsubscribe();
 	}, [collection, orderBy]);
 
-	return { error, documents };
+	return { patientError, patientDocuments };
 };

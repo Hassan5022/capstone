@@ -2,9 +2,31 @@ import React from "react";
 import "./DoctorDetails.css";
 import { useLocation, useNavigate } from "react-router";
 
-const DoctorDetails = () => {
+const DoctorDetails = ({user, doctors, patients}) => {
 	const location = useLocation();
 	const Navigate = useNavigate();
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		if (user) {
+			if (doctors) {	
+				doctors.forEach((doctor) => {
+					if (doctor.id === user.uid) {
+						alert(`${doctor.name}, please login as a patient!`);
+					}
+				});
+			}
+			if (patients) {
+				patients.forEach((patient) => {
+					if (patient.id === user.uid) {
+						Navigate('/select-time', {state: {patientData:patient, doctorData:location.state.data}})
+					}
+				});
+			}
+		} else {
+			alert("You are not logged in! Please login...");
+		}
+	}
 
 	return (
 		<div className="DoctorDetails">
@@ -66,7 +88,7 @@ const DoctorDetails = () => {
 						</select>
 					</div>
 					<div style={{ textAlign: "center" }}>
-						<button className="b" onClick={() => Navigate("/select-time")}>
+						<button className="b" onClick={handleSubmit}>
 							book video consultation
 						</button>
 					</div>

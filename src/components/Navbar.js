@@ -10,14 +10,33 @@ import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBell as faFaBell } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 library.add(faFaBell);
 
 export default function Navbar() {
-	const { user } = useAuthContext();
+	const { user, doctors, patients } = useAuthContext();
 	const { logout } = useLogout();
 	const Navigate = useNavigate();
-	const [showNotification, setShowNotification] = useState(null);
+	const [showNotifications, setShowNotifications] = useState(null);
+
+	useEffect(() => {
+		if (user) {
+			if (doctors) {
+				doctors.forEach((doctor) => {
+					if (doctor.id === user.uid) {
+						setShowNotifications(doctor.notification);
+					}
+				});
+			}
+			if (patients) {
+				patients.forEach((patient) => {
+					if (patient.id === user.uid) {
+						setShowNotifications(patient.notification);
+					}
+				});
+			}
+		}
+	}, [user, doctors, patients]);
 
 	return (
 		<nav className="navbar">
@@ -64,6 +83,7 @@ export default function Navbar() {
 								onClick={() => Navigate("/notification")}
 							>
 								<FontAwesomeIcon icon={faFaBell} />
+								{showNotifications && showNotifications.length !== 0 && <span className="bell-count">{showNotifications.length}</span>}
 							</button>
 						</li>
 					</>
