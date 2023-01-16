@@ -12,6 +12,7 @@
 
 @media screen and (max-width: 400px) {
 	.containe .signup-form {
+		/* min-width: 100px; */
 		min-width: 100px;
 		margin: 60px auto;
 		padding: 30px;
@@ -19,6 +20,21 @@
 		
 	}
 }
+
+@media screen and (max-width: 320px) {
+	.containe .signup-form {
+		/* min-width: 100px; */
+		min-width: 50px;
+		margin: 60px auto;
+		padding: 10px;
+		background-color: white;
+		
+	}
+}
+
+
+
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
