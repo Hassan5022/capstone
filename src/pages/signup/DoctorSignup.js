@@ -177,13 +177,7 @@ export default function Signup() {
 							onChange={(e) => setPhoto(e.target.files[0])}
 						/>
 						{photoPending && (
-							<p
-								style={{
-									color: "red",
-									fontWeight: "bolder",
-									marginLeft: "280px",
-									marginTop: "-20px",
-								}}
+							<p className="percentage"
 							>
 								{parseInt(photoPending) + "%"}
 							</p>
@@ -201,7 +195,7 @@ export default function Signup() {
 								Loading
 							</button>
 						)}
-						{error && <p style={{ color: "red", width: "290px" }}>{error}</p>}
+						{error && <p style={{ color: "red", width: "240px" }}>{error}</p>}
 					</div>
 					<div>
 						<span style={{ color: "#006" }}>

@@ -1,56 +1,55 @@
 .home {
-	background: url(https://s3-eu-west-1.amazonaws.com/mdpk/frontend/assets/images/header-bg.jpg)
-		no-repeat;
-	/* background-size: 100% auto; */
-	min-height: 65vh;
-	background-size: cover;
-	background-repeat: no-repeat;
-	position: relative;
-	text-align: center;
+  background: url(https://s3-eu-west-1.amazonaws.com/mdpk/frontend/assets/images/header-bg.jpg)
+    no-repeat;
+  min-height: 65vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  text-align: center;
 }
 .centered {
-	position: absolute;
-	/* width: 320px; */
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .inp {
-	padding: 10px;
-	width: 380px !important;
+  padding: 10px;
+  width: 380px !important;
+  position: relative;
 }
-.a{
-	padding: 10px;
-	width: 100px;
-	color: #ff9e15 ;
-	border: 1px solid orange;
-	font-weight: bolder;
-	cursor: pointer;
+.a {
+  padding: 10px;
+  width: 100px;
+  color: #ff9e15;
+  border: 1px solid orange;
+  font-weight: bolder;
+  cursor: pointer;
 }
-.a:hover{
-	color: #ff9e15 ;
-	border: 1px solid orange;
-	background-color: white !important;
+.a:hover {
+  color: #ff9e15;
+  border: 1px solid orange;
+  background-color: white !important;
 }
 
 @media screen and (max-width: 970px) {
-	.a {
-		display: none;
-	}
+  .a {
+    display: none;
+  }
 }
 @media screen and (max-width: 600px) {
-	.centered {
-		max-width: 320px;
-	}
-	.inp {
-		max-width: 100px;
-	}
+  .centered {
+    max-width: 320px;
+  }
+  .inp {
+    max-width: 100px;
+  }
 }
 @media screen and (max-width: 350px) {
-	.centered {
-		max-width: 200px;
-	}
-	.inp {
-		max-width: 50px;
-	}
+  .centered {
+    max-width: 200px;
+  }
+  .inp {
+    max-width: 50px;
+  }
 }

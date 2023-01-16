@@ -50,9 +50,9 @@
 }
 .but {
 	margin-top: 30px;
-	background-color: white;
+	background-color: #006;
 	padding: 10px;
-	color: #006;
+	color: white;
 	font-size: 16px;
 	border: 1px solid #006;
 	border-radius: 10px;
@@ -60,9 +60,9 @@
 }
 
 .but:hover {
-	background-color: #006;
-	color: white;
-	border: 1px solid orange;
+	background-color: white;
+	color: #006;
+	border: 1px solid #006;
 }
 
 .circle {

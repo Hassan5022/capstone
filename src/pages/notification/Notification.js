@@ -3,6 +3,12 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEffect, useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import { faXmark as faXmarkLarges } from "@fortawesome/free-solid-svg-icons";
+
+// library.add(faXmarkLarges);
+
 const Notification = () => {
 	const { user, doctors, patients } = useAuthContext();
 	const { deleteNotification } = useFirestore("doctors");
@@ -71,11 +77,11 @@ const Notification = () => {
 	}
 
 	return (
-		<div className="notifications">
+		<div className="notification">
 			{notifications &&
 				notifications.map((notification) => (
-					<div className="notification" key={Math.random()}>
-						<div className="details">
+					<div className="notification-div" key={Math.random()}>
+							<div className="details">
 							<p>Patient Name: {notification.patientName}</p>
 							<p>Patient Email: {notification.patientEmail}</p>
 							<p>Doctor Name: {notification.doctorName}</p>
@@ -89,8 +95,11 @@ const Notification = () => {
 						<div className="delete">
 							{showDoctor && <button onClick={() => approveNotification(notification.patientDocID, notification)}>Approve</button>}
 						</div>
+				{/* <div className="fa-xmarks">
+					<FontAwesomeIcon icon={faXmarkLarges} className="fa-xmark" />
+				</div> */}
 					</div>
-				))}
+					))}
 		</div>
 	);
 };
