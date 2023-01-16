@@ -1,0 +1,19 @@
+.grid-container{
+	display: flex;
+}
+
+.grid-container .paper {
+	padding: 10px;
+	border: 2px solid black;
+	margin: 10px;
+	background-color: white;
+}
+
+
+.grid-container .paper .video{
+    width: 550px;
+}
+
+.grid-container .paper .name{
+    margin-bottom: 4px;
+}
