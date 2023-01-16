@@ -14,6 +14,7 @@ import DoctorDetails from "./pages/DoctorDetails/DoctorDetails";
 import Notification from "./pages/notification/Notification";
 import SelectTime from "./pages/SelectTime/SelectTime";
 import { useEffect, useState } from "react";
+import Video from "./video/Video";
 
 function App() {
 	const [doctor, setDoctor] = useState(null)
@@ -63,7 +64,9 @@ function App() {
 						{!user && <Route path="/doctor-details" element={<Navigate to={"/login"} />} />}
 
 						{user && <Route path="/select-time" element={<SelectTime />} />}
-						{!user && <Route path="/select-time" element={<Error/>} />}
+						{!user && <Route path="/select-time" element={<Error />} />}
+						
+						<Route path="/video-call" element={<Video/>} />
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error/>} />
