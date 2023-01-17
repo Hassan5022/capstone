@@ -7,7 +7,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
-import Card from "./pages/Card/Cards";
+import Cards from "./pages/Card/Cards";
 import DoctorSignup from "./pages/signup/DoctorSignup";
 import PatSignUp from "./pages/signup/PatSignUp";
 import DoctorDetails from "./pages/DoctorDetails/DoctorDetails";
@@ -61,7 +61,7 @@ function App() {
 						{!user && <Route path="/patient-signup" element={<PatSignUp/>} />}
 
 						{/* Doctors */}
-						<Route path="/doctors" element={<Card doctors={doctors} />} />
+						<Route path="/doctors" element={<Cards doctors={doctors} />} />
 
 						{/* Notification */}
 						{user && <Route path="/notification" element={<Notification doctor={doctor} user={user} />} />}
