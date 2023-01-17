@@ -88,7 +88,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
+
 
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
@@ -115,7 +115,7 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+
 
   return (
     <AppBar position="static" sx={{ background: "transparent" }}>
