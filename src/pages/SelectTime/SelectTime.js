@@ -24,6 +24,7 @@ function SelectTime() {
 	
 	const notification = {
 		doctorID: location.state.doctorData.id,
+		doctorDocID: location.state.doctorData.docID,
 		doctorName: location.state.doctorData.name,
 		doctorEmail:location.state.doctorData.email,
 		patientID: location.state.patientData.id,
@@ -55,7 +56,8 @@ function SelectTime() {
 						alert(`${user.displayName} your request has been submitted, Please wait for Dr ${location.state.doctorData.name}'s approval`);
 					})
 					.catch(error => {
-						alert(`${user.displayName} there is an error, Please try again`);
+						// alert(`${user.displayName} there is an error, Please try again`);
+						console.log(error);
 					});
 				setTime("");
 				setdate("");

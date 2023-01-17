@@ -7,7 +7,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Navbar from "./components/Navbar";
 import { Error } from "./components/Error";
-import Card from "./pages/Card/Card";
+import Card from "./pages/Card/Cards";
 import DoctorSignup from "./pages/signup/DoctorSignup";
 import PatSignUp from "./pages/signup/PatSignUp";
 import DoctorDetails from "./pages/DoctorDetails/DoctorDetails";
@@ -18,6 +18,7 @@ import Video from "./video/Video";
 
 function App() {
 	const [doctor, setDoctor] = useState(null)
+	const [patient, setPatient] = useState(null)
 	const { authIsReady, user, doctors, patients } = useAuthContext();
 
 	useEffect(() => {	
@@ -28,13 +29,20 @@ function App() {
 				}
 			});
 		}
-	}, [user, doctors])
+		if (user && patients) {
+			patients.forEach((patient) => {
+				if (patient.id === user.uid) {
+					setPatient(patient)
+				}
+			});
+		}
+	}, [user, patients, doctors])
 
 	return (
 		<div className="App">
 			{authIsReady && (
 				<BrowserRouter>
-					<Navbar />
+					<Navbar patient={patient } />
 					<Routes>
 						
 						{/* Home */}
@@ -66,7 +74,8 @@ function App() {
 						{user && <Route path="/select-time" element={<SelectTime />} />}
 						{!user && <Route path="/select-time" element={<Error />} />}
 						
-						<Route path="/video-call" element={<Video/>} />
+						{user && <Route path="/video-call" element={<Video patient={patient} />} />}
+						{!user && <Route path="/video-call" element={ <Error/>} />}
 
 						{/* Invalid url */}
 						<Route path="*" element={<Error/>} />

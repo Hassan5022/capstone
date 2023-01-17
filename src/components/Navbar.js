@@ -24,7 +24,7 @@ import { faBars as faBarss } from "@fortawesome/free-solid-svg-icons";
 import Stack from "@mui/material/Stack";
 library.add(faFaBell, faBarss);
 
-function Navbar() {
+function Navbar({patient}) {
 	const { user, doctors, patients } = useAuthContext();
 	const { logout } = useLogout();
 	const Navigate = useNavigate();
@@ -48,7 +48,7 @@ function Navbar() {
 				});
 			}
 		}
-	}, [user, doctors, patients]);
+  }, [user, doctors, patients]);
 
 
   const handleOpenNavMenu = (event) => {
@@ -59,6 +59,10 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
+  const handleJoin = () => {
+    Navigate("/video-call", { state: { callID: patient.callID } })
+    window.location.reload()
+  }
 
   return (
     <AppBar position="static" sx={{ background: "transparent" }}>
@@ -141,7 +145,7 @@ function Navbar() {
                   Hello,
                   <span
                     style={{ color: "orange" }}
-                  >{`${user.displayName}`}</span>
+                  >{` ${user.displayName}`}</span>
                 </Typography>
                 <Stack sx={{ marginRight: "20px", marginTop: "13px" }}>
                   <Avatar src={user.photoURL} alt="profile" />
@@ -155,11 +159,27 @@ function Navbar() {
                     backgroundColor: "#006",
                     display: "block",
                     marginRight: "20px",
+                    border: "1px solid #006",
                     borderRadius: "10px",
                   }}
                 >
                   logout
                 </Button>
+                {patient && patient.callID && patient.callID.room && <Button
+                  className="call"
+                  onClick={handleJoin}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    backgroundColor: "#006",
+                    display: "block",
+                    marginRight: "20px",
+                    borderRadius: "10px",
+                    border:"1px solid #006"
+                  }}
+                >
+                  Calling ...
+                </Button>}
                 <Button
                   className="bell"
                   onClick={() => Navigate("/notification")}

@@ -42,7 +42,7 @@ font-size: 100px;
   cursor: pointer;
  
 }
-.logout {
+.logout{
   background-color: #006;
   color: white;
   padding: 9px;
@@ -55,6 +55,11 @@ font-size: 100px;
   background-color: white;
   color: #006;
   border: 1px solid #006;
+}
+
+.call:hover{
+  background-color: white;
+  color: #006;
 }
 
 .dropdown {
