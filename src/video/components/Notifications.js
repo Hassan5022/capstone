@@ -1,7 +1,10 @@
-import { useAuthContext } from "../../hooks/useAuthContext";
+// import { useAuthContext } from "../../hooks/useAuthContext";
+import { SocketContext } from "../SocketContext";
+import { useContext } from "react";
 
 const Notifications = () => {
-	const { answerCall, call, callAccepted } = useAuthContext()
+	// const { answerCall, call, callAccepted } = useAuthContext()
+	const { answerCall, call, callAccepted } = useContext(SocketContext);
 
 	return (
 		<>

@@ -4,16 +4,22 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 // components
 import * as React from 'react';
 import Consult from "../Consult/Consult";
-import Card from "../Card/Card";
+import Cards from "../Card/Cards";
 import Doctor from "../Doctor/Doctor";
 import Reviews from "../Reviews/Reviews";
 import Headline from "../HeadLine/Headline";
 import Footer from "../Footer/Footer";
 import Foot from "../Foot/Foot";
+import { useState } from "react";
 
 
 const Home = () => {
   const { doctors, doctor_error } = useAuthContext();
+  const [search, setSearch] = useState("")
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+  }
 
  return (
     <>
@@ -25,30 +31,30 @@ const Home = () => {
               <span style={{ color: "#ff9e15" }}>best doctors </span>near you
             </h1>
             <br></br>
-            <form>
+            <form onSubmit={handleSearch}>
               <input
                 type="text"
                 placeholder="Search.."
                 className="inp"
+                onChange={(e) => (setSearch(e.target.value))}
                 name="search"
+                // value={search}
               />
               <button type="submit" className="a">search</button>
-             
-                
               
             </form>
           </div>
         </div>
       </section>
-      <section>
-        <Consult />
-      </section>
       {doctors && doctors.length !== 0 && (
         <section>
           {doctor_error && <p>{doctor_error}</p>}
-          {doctors && <Card doctors={doctors} />}
+          {doctors && <Cards doctors={doctors} search={search} />}
         </section>
       )}
+      <section>
+        <Consult />
+      </section>
       <section>
         <Doctor />
       </section>

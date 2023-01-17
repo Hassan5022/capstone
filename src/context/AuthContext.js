@@ -1,16 +1,9 @@
-// video call
-import { io } from 'socket.io-client';
-import Peer from 'simple-peer';
-
 // hooks
-import { createContext, useEffect, useState, useRef, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 // config file
 import { projectAuth } from "../firebase/config";
 import { useCollection } from "../hooks/useCollection";
 import { usePatientCollection } from "../hooks/usePatientCollection";
-
-// socket
-const socket = io('http://localhost:5000');
 
 export const AuthContext = createContext();
 
@@ -37,90 +30,6 @@ const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
 
-	// video call states start
-	const [callAccepted, setCallAccepted] = useState(false);
-    const [callEnded, setCallEnded] = useState(false);
-    const [stream, setStream] = useState();
-    const [name, setName] = useState('');
-    const [call, setCall] = useState({});
-	const [me, setMe] = useState('');
-	
-    const myVideo = useRef();
-    const userVideo = useRef();
-	const connectionRef = useRef();
-	// video call states end
-
-	// video call context start
-	useEffect(() => {
-        const getUserMedia = async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-				setStream(stream);
-				let video = stream;
-                myVideo.current.srcObject = stream;
-				console.log(myVideo.current.srcObject);
-            } catch (e){
-                console.log(e)
-            }
-        };
-        getUserMedia()
-
-    socket.on('me', (id) => setMe(id));
-    socket.on('callUser', ({ from, name: callerName, signal }) => {
-      setCall({ isReceivingCall: true, from, name: callerName, signal });
-    });
-  }, [myVideo]);
-
-  const answerCall = () => {
-    setCallAccepted(true);
-
-    const peer = new Peer({ initiator: false, trickle: false, stream });
-
-    peer.on('signal', (data) => {
-      socket.emit('answerCall', { signal: data, to: call.from });
-    });
-
-    peer.on('stream', (currentStream) => {
-      userVideo.current.srcObject = currentStream;
-    });
-
-    peer.signal(call.signal);
-
-    connectionRef.current = peer;
-  };
-
-    const callUser = (e, id) => {
-        e.preventDefault()
-    const peer = new Peer({ initiator: true, trickle: false, stream });
-
-    peer.on('signal', (data) => {
-      socket.emit('callUser', { userToCall: id, signalData: data, from: me, name });
-    });
-
-    peer.on('stream', (currentStream) => {
-      userVideo.current.srcObject = currentStream;
-    });
-
-    socket.on('callAccepted', (signal) => {
-      setCallAccepted(true);
-
-      peer.signal(signal);
-    });
-
-    connectionRef.current = peer;
-  };
-
-    const leaveCall = (e) => {
-      e.preventDefault()
-    setCallEnded(true);
-
-    connectionRef.current.destroy();
-
-    window.location.reload();
-	};
-	
-	// video call context end
-
 	const [state, dispatch] = useReducer(authReducer, {
 		user: null,
 		authIsReady: false,
@@ -138,6 +47,28 @@ export const AuthContextProvider = ({ children }) => {
 
 	const { patientDocuments, patientError } = usePatientCollection("patients");
 
+	// useEffect(() => {
+	// 	var distance;
+	// 	if (documents) {	
+	// 		documents.forEach((doctor) => {
+	// 			if (doctor.notification) {
+	// 				doctor.notification.forEach((not) => {
+	// 					distance = not.appointmentDate * 1000;
+	// 					var x = setInterval(function () {
+	// 						// Get today's date and time
+	// 						var now = new Date().getTime();
+	// 						// If the count down is finished, write some text
+	// 						if (distance - now < 0) {
+	// 							console.log("expired " + "for " + not.patientName);
+	// 							clearInterval(x);
+	// 						}
+	// 					}, 1000);
+	// 				});
+	// 			}
+	// 		});
+	// 	}
+	// }, [documents]);
+
 	useEffect(() => {
 		dispatch({ type: "DOCTOR_DATA", payload: documents });
 		dispatch({ type: "DOCTOR_DATA_ERROR", payload: error });
@@ -153,22 +84,12 @@ export const AuthContextProvider = ({ children }) => {
 	}, []);
 
 	return (
-		<AuthContext.Provider value={{
-			...state,
-			dispatch,
-			call,
-			callAccepted,
-			myVideo,
-			userVideo,
-			stream,
-			name,
-			setName,
-			callEnded,
-			me,
-			callUser,
-			leaveCall,
-			answerCall
-		}}>
+		<AuthContext.Provider
+			value={{
+				...state,
+				dispatch,
+			}}
+		>
 			{children}
 		</AuthContext.Provider>
 	);

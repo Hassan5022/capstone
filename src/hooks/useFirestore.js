@@ -78,6 +78,38 @@ export const useFirestore = (collection) => {
 				console.error("Error updating document: ", error);
 			});
 	};
+	const sendCallID = async (doc, callID) => {
+		var updateRef = projectFirestore.collection(collection).doc(doc);
+
+		// Set the "capital" field of the city 'DC'
+	        await updateRef
+			.update({
+				callID: callID
+			})
+			.then(() => {
+				console.log("Document successfully updated!");
+			})
+			.catch((error) => {
+				// The document probably doesn't exist.
+				console.error("Error updating document: ", error);
+			});
+	}
+	const sendJoin = async (doc, doctorDocID) => {
+		var updateRef = projectFirestore.collection(collection).doc(doc);
+
+		// Set the "capital" field of the city 'DC'
+	        await updateRef
+			.update({
+				callID: { room: true, doctorDocID: doctorDocID}
+			})
+			.then(() => {
+				console.log("Document successfully updated!");
+			})
+			.catch((error) => {
+				// The document probably doesn't exist.
+				console.error("Error updating document: ", error);
+			});
+	}
 
 	const deleteNotification = async (doc, notification) => {
 		var updateRef = projectFirestore.collection(collection).doc(doc);
@@ -89,6 +121,38 @@ export const useFirestore = (collection) => {
 			})
 			.then(() => {
 				console.log("Document successfully deleted!");
+			})
+			.catch((error) => {
+				// The document probably doesn't exist.
+				console.error("Error deleting document: ", error);
+			});
+	};
+
+	const deletePatientCall = async (doc) => {
+		var updateRef = projectFirestore.collection(collection).doc(doc);
+		// Set the "capital" field of the city 'DC'
+	        await updateRef
+			.update({
+				callID: ""	
+			})
+			.then(() => {
+				console.log("callID successfully deleted!");
+			})
+			.catch((error) => {
+				// The document probably doesn't exist.
+				console.error("Error deleting document: ", error);
+			});
+	};
+
+	const deleteDoctorCall = async (doc) => {
+		var updateRef = projectFirestore.collection(collection).doc(doc);
+		// Set the "capital" field of the city 'DC'
+	        await updateRef
+			.update({
+				callID: ""	
+			})
+			.then(() => {
+				console.log("callID successfully deleted!");
 			})
 			.catch((error) => {
 				// The document probably doesn't exist.
@@ -113,5 +177,5 @@ export const useFirestore = (collection) => {
 		return () => setIsCancelled(true);
 	}, []);
 
-	return { response, addDocument, addNotification, deleteNotification };
+	return { response, sendJoin, deletePatientCall, deleteDoctorCall, addDocument, sendCallID, addNotification, deleteNotification };
 };
