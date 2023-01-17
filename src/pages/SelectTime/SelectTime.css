@@ -6,14 +6,17 @@
 	padding: 20px;
 	background-color: whitesmoke;
 	min-height: 30vh;
+	text-align: center;
+	justify-content: center;
 }
 
 .con {
 	display: flex;
 	max-width: 800px;
-	margin: 0 auto;
+	margin: 10px auto;
 	padding: 20px;
 	background-color: whitesmoke;
+
 }
 .time {
 	width: 80px;
@@ -70,6 +73,7 @@
 	.timeButton {
 		margin-bottom: 10px;
 	}
+
 }
 @media screen and (max-width: 800px) {
 	.timeButton {

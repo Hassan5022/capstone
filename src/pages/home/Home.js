@@ -2,6 +2,7 @@ import "./Home.css";
 // hooks
 import { useAuthContext } from "../../hooks/useAuthContext";
 // components
+import * as React from 'react';
 import Consult from "../Consult/Consult";
 import Card from "../Card/Card";
 import Doctor from "../Doctor/Doctor";
@@ -10,10 +11,11 @@ import Headline from "../HeadLine/Headline";
 import Footer from "../Footer/Footer";
 import Foot from "../Foot/Foot";
 
+
 const Home = () => {
   const { doctors, doctor_error } = useAuthContext();
 
-  return (
+ return (
     <>
       <section className="home">
         <div className="container">
@@ -30,9 +32,10 @@ const Home = () => {
                 className="inp"
                 name="search"
               />
-              <button type="submit" className="a">
-                Search
-              </button>
+              <button type="submit" className="a">search</button>
+             
+                
+              
             </form>
           </div>
         </div>

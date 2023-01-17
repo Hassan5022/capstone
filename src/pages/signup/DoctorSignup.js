@@ -68,7 +68,7 @@ export default function Signup() {
 	};
 
 	return (
-		<div className="bg">
+		<div className="bg" >
 			<div className="containe">
 				<form onSubmit={handleSubmit} className="signup-form">
 					<h3 className="h1">
@@ -178,6 +178,7 @@ export default function Signup() {
 						/>
 						{photoPending && (
 							<p className="percentage"
+							style={{color:'red',marginLeft:'230px',marginTop:'-22px'}}
 							>
 								{parseInt(photoPending) + "%"}
 							</p>

@@ -82,19 +82,25 @@ const Notification = () => {
 				notifications.map((notification) => (
 					<div className="notification-div" key={Math.random()}>
 							<div className="details">
-							<p>Patient Name: {notification.patientName}</p>
+							<p> {notification.patientName}</p>
 							<p>Patient Email: {notification.patientEmail}</p>
 							<p>Doctor Name: {notification.doctorName}</p>
 							<p>Doctor Email: {notification.doctorEmail}</p>
 							<p>Appointment Date: {toDate(notification.appointmentDate)}</p>
 							<p>Created At: {toDate(notification.createdAt.seconds)}</p>
 						</div>
-						{showDoctor && <div className="delete">
-							<button onClick={() => removeNotification(notification)}>Reject</button>
+					
+						<div className="w">
+							{showDoctor && <div className="delete" >
+							<button onClick={() => removeNotification(notification)} className='Reject'>Reject</button>
 						</div>}
-						<div className="delete">
-							{showDoctor && <button onClick={() => approveNotification(notification.patientDocID, notification)}>Approve</button>}
+						<div className="dele">
+							{showDoctor && <button onClick={() => approveNotification(notification.patientDocID, notification)} className='approve'>Approve</button>}
+
 						</div>
+						<div className="createcall"><button className='approve'>createcall</button></div>
+						</div>
+						
 				{/* <div className="fa-xmarks">
 					<FontAwesomeIcon icon={faXmarkLarges} className="fa-xmark" />
 				</div> */}

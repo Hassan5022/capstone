@@ -10,7 +10,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 import "./Navbar.css";
@@ -61,7 +60,7 @@ function Navbar() {
 
 
   return (
-    <AppBar position="static" sx={{ background: "transparent" }}>
+    <AppBar position="sticky" sx={{ background: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -136,7 +135,7 @@ function Navbar() {
                 <Typography
                   variant="h5"
                   component="h2"
-                  sx={{ color: "#006", marginRight: "20px", marginTop: "13px" }}
+                  sx={{ color: "#006", marginRight: "20px", marginTop: "17px" }}
                 >
                   Hello,
                   <span
@@ -156,6 +155,8 @@ function Navbar() {
                     display: "block",
                     marginRight: "20px",
                     borderRadius: "10px",
+                    '&:hover': {
+                      backgroundColor: 'white', color:'#006', border:'1px solid #006' }
                   }}
                 >
                   logout
@@ -169,6 +170,8 @@ function Navbar() {
                     background: "#006",
                     display: "block",
                     borderRadius: "10px",
+                    '&:hover': {
+                      backgroundColor: 'white', color:'#006', border: '1px solid #006' }
                   }}
                 >
                   <Badge badgeContent={(showNotifications && showNotifications.length)} color="primary">

@@ -5,7 +5,7 @@ const VideoPlayer = () => {
 	const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } = useAuthContext()
 
 	return (
-		<div className="grid-container">
+		<div className="grid-containe">
 			{stream && (
 				<div className="paper">
 						<h2 className="name">{name || "Name"}</h2>

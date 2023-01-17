@@ -55,7 +55,7 @@ export default function PatSignUp() {
 	};
 
 	return (
-		<div className="bg">
+		<div className="bg" style={{ minHeight: '91.5vh'}}>
 			<div className="containe">
 				<form onSubmit={handleSubmit} className="signup-form">
 					<h3 className="h1">SignUP <span style={{color:'orange'}}>Form</span></h3>
@@ -101,7 +101,7 @@ export default function PatSignUp() {
               placeholder="Picture"
               onChange={(e) => setPhoto(e.target.files[0])}
 						/>
-						{photoPending && <p className="percentage">{parseInt(photoPending) + "%"}</p>}
+						{photoPending && <p className="percentage" style={{color:'red',marginLeft:'230px',marginTop:'-22px'}}>{parseInt(photoPending) + "%"}</p>}
 					</div>
 					
 					<div className="col">
