@@ -41,7 +41,6 @@ export default function Signup() {
 		e.preventDefault();
 
 		var uploadTask = storageRef.child(`images/${photo.name}`).put(photo);
-		console.log(uploadTask);
 
 		// Register three observers:
 		// 1. 'state_changed' observer, called any time the state changes
@@ -62,7 +61,6 @@ export default function Signup() {
 				// Handle successful uploads on complete
 				// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 				uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-					console.log("File available at", downloadURL);
 					setUrl(downloadURL);
 				});
 			}

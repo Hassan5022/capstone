@@ -21,7 +21,6 @@ export const useSignup = () => {
 		category,
 		experience
     ) => {
-        console.log(role);
         setError(null);
 		setIsPending(true);
 

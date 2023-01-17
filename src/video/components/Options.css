@@ -1,0 +1,50 @@
+.container {
+	width: 600px;
+	margin: 8px 0;
+	padding: 0;
+}
+
+.container .paper {
+	padding: 10px 20px;
+	border: 2px solid black;
+    background-color: white;
+}
+
+.container .paper .root {
+	display: flex;
+	flex-direction: column;
+}
+
+.container .paper .root .grid-container {
+	display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    margin-top: 12px;
+    border: 1px solid rosybrown;
+    width: 148px;
+    height: 38px;
+    background-color: aliceblue;
+}
+.padding {
+	padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .paper .root .grid-container p{
+    margin: 8px 0;
+}
+
+.container .paper .root .grid-container label{
+    display: contents;
+}
+
+.container .paper .root .grid-container .input{
+    margin-top: 8px;
+    padding: 8px;
+    width: 100%;
+}
