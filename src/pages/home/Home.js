@@ -11,57 +11,58 @@ import Footer from "../Footer/Footer";
 import Foot from "../Foot/Foot";
 
 const Home = () => {
+  const { doctors, doctor_error } = useAuthContext();
 
-	const { doctors, doctor_error } = useAuthContext();
-
-	return (
-		<>
-			<section className="home">
-				<div className="container">
-					<div className="centered">
-						<h1 style={{ color: "white" }}>
-							Find and book the{" "}
-							<span style={{ color: "#ff9e15" }}>best doctors </span>near you
-						</h1>
-						<br></br>
-						<form>
-							<input
-								type="text"
-								placeholder="Search.."
-								className="inp"
-								name="search"
-							/>
-							<button type="submit" className="a">
-								Search
-							</button>
-						</form>
-					</div>
-				</div>
-			</section>
-			<section>
-				<Consult />
-			</section>
-			{doctors && doctors.length !== 0 && <section>
-				{doctor_error && <p>{doctor_error}</p>}
-				{doctors && <Card doctors={doctors} />}
-			</section>}
-			<section>
-				<Doctor />
-			</section>
-			<section>
-				<Reviews />
-			</section>
-			<section>
-				<Headline/>
-			</section>
-			<section>
-				<Footer/>
-			</section>
-			<section>
-				<Foot/>
-			</section>
-		</>
-	);
+  return (
+    <>
+      <section className="home">
+        <div className="container">
+          <div className="centered">
+            <h1 style={{ color: "white" }}>
+              Find and book the{" "}
+              <span style={{ color: "#ff9e15" }}>best doctors </span>near you
+            </h1>
+            <br></br>
+            <form>
+              <input
+                type="text"
+                placeholder="Search.."
+                className="inp"
+                name="search"
+              />
+              <button type="submit" className="a">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <Consult />
+      </section>
+      {doctors && doctors.length !== 0 && (
+        <section>
+          {doctor_error && <p>{doctor_error}</p>}
+          {doctors && <Card doctors={doctors} />}
+        </section>
+      )}
+      <section>
+        <Doctor />
+      </section>
+      <section>
+        <Reviews />
+      </section>
+      <section>
+        <Headline />
+      </section>
+      <section>
+        <Footer />
+      </section>
+      <section>
+        <Foot />
+      </section>
+    </>
+  );
 };
 
 export default Home;
