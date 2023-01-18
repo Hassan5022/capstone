@@ -7,7 +7,7 @@ const Foot = () => {
 <div className='foot-center'>
 <div>
 <p style={{lineHeight:'35px'}}>Copyright @ 2015 - 2023 MediConnect Services, a subsidiary of MyDoctor Inc - All Rights Reserved  <br></br>
-Reproduction of material from any oladoc.com pages without permission is strictly prohibited.</p></div>
+Reproduction of material from any medcure.com pages without permission is strictly prohibited.</p></div>
 <div>
 <div >
 <p>connect with us </p>

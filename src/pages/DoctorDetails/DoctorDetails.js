@@ -29,7 +29,7 @@ const DoctorDetails = ({user, doctors, patients}) => {
 	}
 
 	return (
-		<div className="DoctorDetails">
+		<div className="DoctorDetails" >
 			<div className="fle">
 				<div className="flex-lef">
 					<div className="lef">
@@ -87,7 +87,7 @@ const DoctorDetails = ({user, doctors, patients}) => {
 							<option>Friday 4:30pm-8pm</option>
 						</select>
 					</div>
-					<div style={{ textAlign: "center" }}>
+					<div style={{ textAlign: "center" ,paddingBottom:'10px'}}>
 						<button className="b" onClick={handleSubmit}>
 							book video consultation
 						</button>

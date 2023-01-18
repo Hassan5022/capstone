@@ -14,39 +14,28 @@ const Options = ({ children }) => {
 				<form className="root" noValidate autoComplete="off">
 					<div className="grid-container">
 						<div className="padding">
-							<p>Account Info</p>
-                            <input
-                                placeholder="Name"
-                                    className="input"
-									type="text"
-									value={name}
-									onChange={(e) => setName(e.target.value)}
-								/>
-							<CopyToClipboard text={me} className="btn">
-								<button onClick={(e) => e.preventDefault()}>Copy Your ID</button>
+							<CopyToClipboard text={me} className="btnn">
+								<button onClick={(e) => e.preventDefault()}>join</button>
 							</CopyToClipboard>
 						</div>
 						<div className="padding">
-							<p>Make a call</p>
-                            <input
-                                placeholder="ID to Call"
-                                    className="input"
-									type="text"
-									value={idToCall}
-									onChange={(e) => setIdToCall(e.target.value)}
-								/>
+							
                             {callAccepted && !callEnded ? (
-                                <button onClick={(e) => leaveCall(e)} className="btn">
+                                <button onClick={(e) => leaveCall(e)} className="btnn">
                                     Hang Up
                                 </button>
                             ) : (
-                                    <button className="btn" onClick={(e) => callUser(e, idToCall)}>
+                                    <button className="btnn" onClick={(e) => callUser(e, idToCall)}>
                                         Call
                                     </button>
                             )}
 						</div>
 					</div>
 				</form>
+				<div className="accept">
+				<p style={{color:'#006',fontWeight:'bold'}}>areesha is calling <span style={{color:'orange'}}>.....</span></p>
+				<button className="accept-btn">accept</button>
+				</div>
 			{children}
 			</div>
 		</div>

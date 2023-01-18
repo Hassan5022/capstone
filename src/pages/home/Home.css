@@ -19,16 +19,18 @@
   position: relative;
 }
 .a {
-  padding: 10px;
+  padding: 11px;
+  /* margin-left: 2px; */
   width: 100px;
-  color: #ff9e15;
-  border: 1px solid orange;
+  color: #006;
+  border: 1px solid #006;
   font-weight: bolder;
   cursor: pointer;
+  background-color: white;
 }
 .a:hover {
-  color: #ff9e15;
-  border: 1px solid orange;
+color: #006 !important;
+  border: 1px solid #006;
   background-color: white !important;
 }
 
@@ -53,3 +55,19 @@
     max-width: 50px;
   }
 }
+
+
+
+@media screen and (max-width: 400px) {
+ .box{
+max-width: 350px;
+ }
+}
+
+
+@media screen and (max-width: 320px) {
+  .box{
+ max-width: 300px;
+  }
+ }
+
