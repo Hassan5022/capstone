@@ -7,7 +7,8 @@ import { useFirestore } from "../hooks/useFirestore";
 const SocketContext = createContext();
 
 // const socket = io("http://localhost:5000");
-const socket = io('https://http-nodejs-production-3f88.up.railway.app/');
+// const socket = io('https://http-nodejs-production-3f88.up.railway.app/');
+const socket = io('web-production-dcf0.up.railway.app');
 
 const ContextProvider = ({ children }) => {
 	const [callAccepted, setCallAccepted] = useState(false);
