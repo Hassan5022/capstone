@@ -14,7 +14,7 @@ const VideoPlayer = () => {
 	} = useContext(SocketContext);
 
 	return (
-		<div className="grid-container">
+		<div className="grid-containe">
 			{stream && (
 				<div className="paper">
 					<h2 className="name">{docName || "Name"}</h2>

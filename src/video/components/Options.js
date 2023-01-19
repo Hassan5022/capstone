@@ -54,40 +54,27 @@ const Options = ({ children }) => {
 				<div className="root">
 					<div className="grid-container">
 						<div className="padding">
-							{/* <p>Account Info</p> */}
-							{/* <input
-								placeholder="Name"
-								className="input"
-								type="text"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-							/> */}
 							{ patient && patient.callID && patient.callID.doctorDocID &&
 								<button
-									className="btn"
+									className="btnn"
 									onClick={(e) => joinHandle(e, patient.callID.doctorDocID, me)}
 								>
 									Join
 								</button>}
-							{/* <CopyToClipboard text={me} className="btn">
-								<button onClick={(e) => e.preventDefault()}>
-									Copy Your ID
-								</button>
-							</CopyToClipboard> */}
 						</div>
 						<div className="padding">
 							{doctor && doctor.callID &&<p>Make a call</p>}
 							{callAccepted && !callEnded ? (
-								(patient && patient.docID && <button onClick={(e) => leavePatientCall(e, patient.docID)} className="btn">
+								(patient && patient.docID && <button onClick={(e) => leavePatientCall(e, patient.docID)} className="btnn">
 									Hang Up
 								</button>) ||
-								(doctor && doctor.docID && <button onClick={(e) => leaveDoctorCall(e, doctor.docID)} className="btn">
+								(doctor && doctor.docID && <button onClick={(e) => leaveDoctorCall(e, doctor.docID)} className="btnn">
 									End Meeting
 								</button>)
 							) : (
 								(doctor && doctor.callID &&
 									<button
-										className="btn"
+										className="btnn"
 										onClick={(e) => callUser(e, doctor.callID, doctor.name)}
 									>
 										Call
@@ -97,7 +84,11 @@ const Options = ({ children }) => {
 						</div>
 					</div>
 				</div>
-				{children}
+				{/* <div className="accept">
+				<p style={{color:'#006',fontWeight:'bold'}}>areesha is calling <span style={{color:'orange'}}>.....</span></p>
+				<button className="accept-btn">accept</button>
+				</div> */}
+			{children}
 			</div>
 		</div>
 	);

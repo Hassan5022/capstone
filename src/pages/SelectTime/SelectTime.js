@@ -71,8 +71,8 @@ function SelectTime() {
 				<div className="con">
 					<img src={location.state.doctorData.url} alt="doc" className="time"/>
 					<div className="dr">
-						<p style={{textTransform:"capitalize"}}>{location.state.doctorData.name }</p>
-						<p>
+						<p style={{textTransform:"capitalize",fontWeight:'bold'}}>{location.state.doctorData.name }</p>
+						<p style={{color:'orange'}}>
 							Online Video Consultation
 						</p>
 					</div>

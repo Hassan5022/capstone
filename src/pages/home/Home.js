@@ -2,6 +2,7 @@ import "./Home.css";
 // hooks
 import { useAuthContext } from "../../hooks/useAuthContext";
 // components
+import * as React from 'react';
 import Consult from "../Consult/Consult";
 import Cards from "../Card/Cards";
 import Doctor from "../Doctor/Doctor";
@@ -11,6 +12,7 @@ import Footer from "../Footer/Footer";
 import Foot from "../Foot/Foot";
 import { useState } from "react";
 
+
 const Home = () => {
   const { doctors, doctor_error } = useAuthContext();
   const [search, setSearch] = useState("")
@@ -19,7 +21,7 @@ const Home = () => {
     e.preventDefault()
   }
 
-  return (
+ return (
     <>
       <section className="home">
         <div className="container">

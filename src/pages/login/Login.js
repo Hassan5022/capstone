@@ -1,5 +1,5 @@
 // styles
-// import "./Login.css";
+import "./Login.css";
 // hooks
 import { useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
@@ -15,9 +15,9 @@ export default function Login() {
   };
 
   return (
-    <div className="bg">
-      <div className="containe">
-        <form className="signup-form" onSubmit={handleSubmit}>
+    <div className="bg" style={{ minHeight: '91.5vh'}}>
+      <div className="contain">
+        <form className="login-form" onSubmit={handleSubmit}>
           <h3 className="h1">
             Login <span style={{ color: "orange" }}>Form</span>
           </h3>

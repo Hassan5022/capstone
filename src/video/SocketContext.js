@@ -7,7 +7,7 @@ import { useFirestore } from "../hooks/useFirestore";
 const SocketContext = createContext();
 
 const socket = io("http://localhost:5000");
-// const socket = io('https://warm-wildwood-81069.herokuapp.com');
+// const socket = io('http-nodejs-production-3f88.up.railway.app');
 
 const ContextProvider = ({ children }) => {
 	const [callAccepted, setCallAccepted] = useState(false);

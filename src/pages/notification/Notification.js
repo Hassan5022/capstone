@@ -19,13 +19,13 @@ const Notification = () => {
 	const [idToCall, setIdToCall] = useState(null);
 	const { addNotification, sendJoin } = useFirestore("patients");
 	const { me } = useContext(SocketContext);
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (me) {
-			setIdToCall(me)
+			setIdToCall(me);
 		}
-	}, [me])
+	}, [me]);
 
 	const toDate = (seconds) => {
 		const timestamp = {
@@ -101,16 +101,16 @@ const Notification = () => {
 	};
 
 	const handleCall = (patientDocID, doctorDocID) => {
-		console.log(patientDocID, doctorDocID	)
+		console.log(patientDocID, doctorDocID);
 		sendJoin(patientDocID, doctorDocID)
 			.then(() => {
 				navigate("/video-call");
-				window.location.reload()
-			}).
-			catch(error => {
-			alert("Something is wrong")
+				window.location.reload();
+			})
+			.catch((error) => {
+				alert("Something is wrong");
 				console.log(error);
-		})
+			});
 		// sendCallID(doctorDocID, idToCall)
 		// 	.then(() => {
 		// 		navigate("/video-call");
@@ -120,8 +120,7 @@ const Notification = () => {
 		// 	// alert("Something is wrong")
 		// 		console.log(error);
 		// })
-	}
-
+	};
 
 	return (
 		<div className="notification">
@@ -136,36 +135,76 @@ const Notification = () => {
 							<p>Appointment Date: {toDate(notification.appointmentDate)}</p>
 							<p>Created At: {toDate(notification.createdAt.seconds)}</p>
 						</div>
-						{showDoctor && (
-							<div className="delete">
-								<button onClick={() => removeNotification(notification)}>
-									Reject
-								</button>
+						<div className="w">
+							{showDoctor && (
+								<div className="delete">
+									<button className="Reject" onClick={() => removeNotification(notification)}>
+										Reject
+									</button>
+								</div>
+							)}
+							<div className="dele">
+								{showDoctor && (
+									<button
+									className="approve"
+										onClick={() =>
+											approveNotification(
+												notification.patientDocID,
+												notification
+											)
+										}
+									>
+										Approve
+									</button>
+								)}
 							</div>
-						)}
-						<div className="delete">
-							{showDoctor && (
-								<button
-									onClick={() =>
-										approveNotification(notification.patientDocID, notification)
-									}
-								>
-									Approve
-								</button>
-							)}
+							<div className="createcall">
+								{showDoctor && (
+									<button
+										className="create"
+										onClick={() =>
+											handleCall(
+												notification.patientDocID,
+												notification.doctorDocID
+											)
+										}
+									>
+										CreateCall
+									</button>
+								)}
+							</div>
 						</div>
-						<div className="start-call">
+
+						{/* <div className="w">
 							{showDoctor && (
-								<button
-									onClick={() => handleCall(notification.patientDocID, notification.doctorDocID)}
-								>
-									Create Call
-								</button>
+								<div className="delete">
+									<button
+										onClick={() => removeNotification(notification)}
+										className="Reject"
+									>
+										Reject
+									</button>
+								</div>
 							)}
-						</div>
-						{/* <div className="fa-xmarks">
-					<FontAwesomeIcon icon={faXmarkLarges} className="fa-xmark" />
-				</div> */}
+							<div className="dele">
+								{showDoctor && (
+									<button
+										onClick={() =>
+											approveNotification(
+												notification.patientDocID,
+												notification
+											)
+										}
+										className="approve"
+									>
+										Approve
+									</button>
+								)}
+							</div>
+							<div className="createcall">
+								<button className="approve">createcall</button>
+							</div>
+						</div> */}
 					</div>
 				))}
 		</div>

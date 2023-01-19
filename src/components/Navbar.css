@@ -40,7 +40,6 @@ font-size: 100px;
   border: 1px solid #006;
   border-radius: 10px;
   cursor: pointer;
- 
 }
 .logout{
   background-color: #006;
@@ -51,10 +50,11 @@ font-size: 100px;
  border-radius: 10px;
   cursor: pointer;
 }
-.logout:hover {
-  background-color: white;
+.logout:hover { 
   color: #006;
-  border: 1px solid #006;
+  background-color: white;
+  /* border: 1px solid; */
+ border-color: #006;
 }
 
 .call:hover{
@@ -112,8 +112,8 @@ font-size: 100px;
   font-size: 22px;
   
 }
-.bell:hover{
+/* .bell:hover{
   background-color: white;
   color: #006;
-  border: 1px solid #006;
-}
+  border: 1px solid  #006;
+} */
