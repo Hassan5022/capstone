@@ -81,7 +81,6 @@ export const useFirestore = (collection) => {
 	const sendCallID = async (doc, callID) => {
 		var updateRef = projectFirestore.collection(collection).doc(doc);
 
-		// Set the "capital" field of the city 'DC'
 	        await updateRef
 			.update({
 				callID: callID
@@ -97,7 +96,6 @@ export const useFirestore = (collection) => {
 	const sendJoin = async (doc, doctorDocID) => {
 		var updateRef = projectFirestore.collection(collection).doc(doc);
 
-		// Set the "capital" field of the city 'DC'
 	        await updateRef
 			.update({
 				callID: { room: true, doctorDocID: doctorDocID}
@@ -114,7 +112,6 @@ export const useFirestore = (collection) => {
 	const deleteNotification = async (doc, notification) => {
 		var updateRef = projectFirestore.collection(collection).doc(doc);
 
-		// Set the "capital" field of the city 'DC'
 	        await updateRef
 			.update({
 				notification: firebase.firestore.FieldValue.arrayRemove(notification)
@@ -130,7 +127,7 @@ export const useFirestore = (collection) => {
 
 	const deletePatientCall = async (doc) => {
 		var updateRef = projectFirestore.collection(collection).doc(doc);
-		// Set the "capital" field of the city 'DC'
+	
 	        await updateRef
 			.update({
 				callID: ""	
@@ -146,7 +143,7 @@ export const useFirestore = (collection) => {
 
 	const deleteDoctorCall = async (doc) => {
 		var updateRef = projectFirestore.collection(collection).doc(doc);
-		// Set the "capital" field of the city 'DC'
+	
 	        await updateRef
 			.update({
 				callID: ""	

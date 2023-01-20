@@ -1,38 +1,32 @@
-.grid-containe{
+.grid-containe {
 	display: flex;
 	flex-direction: row;
-	
-	
 }
 
 .grid-containe .paper {
 	padding: 10px;
-	/* border: 2px solid #006; */
 	margin: 10px;
 	background-color: white;
 	box-shadow: 3px 3px 5px 6px #ccc;
 }
 
-
-.grid-containe .paper .video{
-    width: 550px;
+.grid-containe .paper .video {
+	width: 550px;
 }
 
-.grid-containe .paper .name{
-    margin-bottom: 4px;
+.grid-containe .paper .name {
+	margin-bottom: 4px;
 }
 @media screen and (max-width: 800px) {
-	.grid-containe  {
+	.grid-containe {
 		display: flex;
 		flex-direction: column;
-	}}
-
-.name{
-	color: #006;
+	}
 }
 
-
-
+.name {
+	color: #006;
+}
 
 @media screen and (max-width: 600px) {
 	.grid-containe .paper {
@@ -40,18 +34,16 @@
 		margin: 5px;
 		background-color: white;
 	}
-	
-	
-	.grid-containe .paper .video{
+
+	.grid-containe .paper .video {
 		max-width: 400px;
 	}
-	
-	.grid-containe .paper .name{
+
+	.grid-containe .paper .name {
 		margin-bottom: 2px;
 		margin-left: 10px;
 	}
 }
-
 
 @media screen and (max-width: 400px) {
 	.grid-containe .paper {
@@ -59,13 +51,12 @@
 		margin: 5px;
 		background-color: white;
 	}
-	
-	
-	.grid-containe .paper .video{
+
+	.grid-containe .paper .video {
 		max-width: 300px;
 	}
-	
-	.grid-containe .paper .name{
+
+	.grid-containe .paper .name {
 		margin-bottom: 2px;
 		margin-left: 10px;
 	}

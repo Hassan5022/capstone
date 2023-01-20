@@ -1,6 +1,4 @@
-import doctor from "../../Images/docImage.jpg";
 import "./SelectTime.css";
-// import { useRealtime } from "../../hooks/useRealtime";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useState } from "react";
 import { useLocation } from "react-router";
@@ -35,6 +33,12 @@ function SelectTime() {
 		createdAt
 	};
 
+	const isCorrectDate = (date, time) => {
+		const now = Date.now();
+		const appTime = toTimestamp(`${date} ${time}`) * 1000;
+		return appTime - now < 0 ? false : true
+	}
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (user && doctors) {
@@ -49,8 +53,9 @@ function SelectTime() {
 		if (user && location.state.patientData && location.state.doctorData) {
 			if (date === "" && time === "") {
 				setFieldError("Please select date and time!");
-			}
-			else {
+			} else if (!isCorrectDate(date, time)) {
+				setFieldError("Invalid Date!");
+			}else {
 				addNotification(location.state.doctorData.docID, notification)
 					.then(res => {
 						alert(`${user.displayName} your request has been submitted, Please wait for Dr ${location.state.doctorData.name}'s approval`);

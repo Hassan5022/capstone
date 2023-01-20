@@ -1,4 +1,3 @@
-import React from "react";
 import "./Doctor.css";
 import { useNavigate } from "react-router";
 

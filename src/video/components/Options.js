@@ -1,17 +1,15 @@
 import "./Options.css";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { SocketContext } from "../SocketContext";
 import { useContext, useEffect, useState } from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Options = ({ children }) => {
-	const { me, callAccepted, docName, setDocName, callEnded, leavePatientCall,leaveDoctorCall, callUser } =
+	const { me, callAccepted, callEnded, leavePatientCall,leaveDoctorCall, callUser } =
 		useContext(SocketContext);
 	const { user, patients, doctors } = useAuthContext();
 	const [patient, setPatient] = useState(null)
 	const [doctor, setDoctor] = useState(null)
-	// const [idToCall, setIdToCall] = useState(null);
 	const { sendCallID } = useFirestore("doctors");
 	
 	useEffect(() => {	
@@ -30,12 +28,6 @@ const Options = ({ children }) => {
 			});
 		}
 	}, [user, patients, doctors])
-
-	// useEffect(() => {
-	// 	if (me) {
-	// 		setIdToCall(me);
-	// 	}
-	// }, [me]);
 
 	const joinHandle = (e, doctorDocID, idToCall) => {
 		e.preventDefault()
@@ -84,10 +76,6 @@ const Options = ({ children }) => {
 						</div>
 					</div>
 				</div>
-				{/* <div className="accept">
-				<p style={{color:'#006',fontWeight:'bold'}}>areesha is calling <span style={{color:'orange'}}>.....</span></p>
-				<button className="accept-btn">accept</button>
-				</div> */}
 			{children}
 			</div>
 		</div>

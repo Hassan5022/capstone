@@ -1,4 +1,3 @@
-import React from "react";
 import "./DoctorDetails.css";
 import { useLocation, useNavigate } from "react-router";
 

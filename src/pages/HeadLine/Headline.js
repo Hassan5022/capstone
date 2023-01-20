@@ -1,4 +1,3 @@
-import React from "react";
 import "./Headline.css";
 import Dawn from "../../Images/Dawn.png";
 import Express from "../../Images/tribune.png";
@@ -12,7 +11,7 @@ const Headline = () => {
     <div className="Headline">
       <div className="head">
         <h1 style={{ color: "#006" }}>
-          Oladoc in <span style={{ color: "orange" }}>news</span>
+          Med<span style={{ color: "orange" }}>Cure</span>
         </h1>
       </div>
       <div className="marq">

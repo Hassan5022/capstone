@@ -1,13 +1,10 @@
-import React, { createContext, useState, useRef, useEffect } from "react";
+import { createContext, useState, useRef, useEffect } from "react";
 import { io } from "socket.io-client";
 import Peer from "simple-peer";
 import { useFirestore } from "../hooks/useFirestore";
-// import { useNavigate } from "react-router";
-
 const SocketContext = createContext();
 
 // const socket = io("http://localhost:5000");
-// const socket = io('https://http-nodejs-production-3f88.up.railway.app/');
 const socket = io('web-production-dcf0.up.railway.app');
 
 const ContextProvider = ({ children }) => {
@@ -24,8 +21,6 @@ const ContextProvider = ({ children }) => {
 	const myVideo = useRef();
 	const userVideo = useRef();
 	const connectionRef = useRef();
-
-	// const Navigate = useNavigate();
 
 	useEffect(() => {
 		const getUserMedia = async () => {
@@ -108,7 +103,6 @@ const ContextProvider = ({ children }) => {
 		deletePatientCall(patientDocID)
 			.then(() => {
 				connectionRef.current.destroy();
-				// Navigate("/")
 				window.location.reload();
 			})
 			.catch((error) => {
@@ -123,7 +117,6 @@ const ContextProvider = ({ children }) => {
 		deleteDoctorCall(doctorDocID)
 			.then(() => {
 				connectionRef.current.destroy();
-				// Navigate("/")
 				window.location.reload();
 			})
 			.catch((error) => {

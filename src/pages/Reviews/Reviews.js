@@ -1,4 +1,3 @@
-import React from "react";
 import "./Reviews.css";
 import DocImage from "../../Images/docImage.jpg";
 import DocImage2 from "../../Images/doctor.png";

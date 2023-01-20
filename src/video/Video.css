@@ -16,7 +16,6 @@
 	justify-content: center;
 	align-items: center;
 	width: 600px;
-	/* border: 2px solid black; */
 	height: 80px;
 	color: #006;
 	box-shadow: 3px 3px 5px 6px #ccc;
@@ -26,13 +25,10 @@
 	.app-bar {
 		max-width: 400px;
 	}
-
 }
-
 
 @media screen and (max-width: 400px) {
 	.app-bar {
 		max-width: 300px;
 	}
-
 }

@@ -1,6 +1,4 @@
-import React from "react";
 import "./Consult.css";
-import { Link } from "react-router-dom";
 import icon from "../../Images/online.png";
 import { useNavigate } from 'react-router'
 const Consult = () => {
@@ -21,12 +19,6 @@ const Consult = () => {
 					</p>
 					<button className="but" onClick={()=>Navigate('/doctors')}>
 					Start Consulting
-						{/* <Link
-							to="/doctors"
-							style={{ textDecoration: "none"}}
-						>
-							Start Consulting
-						</Link> */}
 					</button>
 				</div>
 			</div>

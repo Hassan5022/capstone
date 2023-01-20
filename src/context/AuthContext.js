@@ -1,9 +1,9 @@
 // hooks
 import { createContext, useEffect, useReducer } from "react";
-// config file
-import { projectAuth } from "../firebase/config";
 import { useCollection } from "../hooks/useCollection";
 import { usePatientCollection } from "../hooks/usePatientCollection";
+// config file
+import { projectAuth } from "../firebase/config";
 
 export const AuthContext = createContext();
 

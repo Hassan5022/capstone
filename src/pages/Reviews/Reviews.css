@@ -24,14 +24,13 @@
 	display: flex;
 	align-items: flex-start;
 	flex-direction: column;
-  box-shadow: 3px 3px 5px 6px #ccc;
+	box-shadow: 3px 3px 5px 6px #ccc;
 }
 
 @media (min-width: 600px) {
 	.Reviews {
 		grid-template-columns: repeat(2, 1fr);
 		padding: 50px;
-
 	}
 }
 
@@ -55,37 +54,29 @@
 
 .Review .ratings {
 	display: flex;
-    margin: 8px 0 16px;
+	margin: 8px 0 16px;
 	color: orange;
 }
-  
-  @media (max-width: 599px) {
-    .Reviews {
-      grid-template-columns: repeat(1, 1fr);
-      padding: 50px;
-	  
-    }
-  }
-  
-  
-  @media (max-width: 800px) {
-    .Doc {
-      left: 110px;
-	  /* top: 195px; */
-    }
-  }
 
-  @media (max-width: 400px) {
-    .Doc {
-      left: 80px;
-	  /* top: 240px; */
-    }
-	.Review{
+@media (max-width: 599px) {
+	.Reviews {
+		grid-template-columns: repeat(1, 1fr);
+		padding: 50px;
+	}
+}
+
+@media (max-width: 800px) {
+	.Doc {
+		left: 110px;
+	}
+}
+
+@media (max-width: 400px) {
+	.Doc {
+		left: 80px;
+	}
+	.Review {
 		width: 250px;
 		padding-bottom: 50px;
-	
 	}
-  }
-
-
-
+}
