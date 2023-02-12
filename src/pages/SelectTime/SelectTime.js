@@ -39,6 +39,17 @@ function SelectTime() {
 		return appTime - now < 0 ? false : true
 	}
 
+	const handleButton = (e) => {
+		setTime(e.target.value)
+		const node = e.target.parentNode.childNodes;
+		for (let i = 0; i < node.length; i++){
+			if (node[i].className.includes("timeButton")) {
+				node[i].className = "timeButton";
+			}
+		}
+		e.target.className = 'timeButton active';
+	}
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (user && doctors) {
@@ -86,38 +97,38 @@ function SelectTime() {
 					<div className="cen">
 						<button
 							className="timeButton"
-							onClick={(e) => setTime(e.target.value)}
+							onClick={(e) => handleButton(e)}
 							value="16:00:00"
 						>
-							04:00PM
+							04:00 PM
 						</button>
 						<button
 							className="timeButton"
-							onClick={(e) => setTime(e.target.value)}
+							onClick={(e) => handleButton(e)}
 							value="17:00:00"
 						>
 							05:00 PM
 						</button>
 						<button
 							className="timeButton"
-							onClick={(e) => setTime(e.target.value)}
+							onClick={(e) => handleButton(e)}
 							value="18:00:00"
 						>
-							06:00PM
+							06:00 PM
 						</button>
 						<button
 							className="timeButton"
-							onClick={(e) => setTime(e.target.value)}
+							onClick={(e) => handleButton(e)}
 							value="19:00:00"
 						>
-							07:00PM
+							07:00 PM
 						</button>
 						<button
 							className="timeButton"
-							onClick={(e) => setTime(e.target.value)}
+							onClick={(e) => handleButton(e)}
 							value="20:00:00"
 						>
-							08:00PM
+							08:00 PM
 						</button>
 						<div className="date">
 							<input 

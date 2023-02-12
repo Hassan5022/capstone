@@ -31,6 +31,8 @@ const Options = ({ children }) => {
 
 	const joinHandle = (e, doctorDocID, idToCall) => {
 		e.preventDefault()
+		console.log(doctorDocID)
+		console.log(idToCall)
 		sendCallID(doctorDocID, idToCall)
 			.then(() => {
 				alert("Please Wait...")

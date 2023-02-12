@@ -42,6 +42,13 @@
 	width: 100px;
 }
 
+.sect .cen .active{
+	background-color: white;
+	color: white;
+	border: 1px solid #ff9e15;
+	color: #006;
+}
+
 .timeButton:hover {
 	background-color: white;
 	color: white;
